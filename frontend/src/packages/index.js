@@ -1,17 +1,17 @@
 import PilotButton from './Button';
-import PilotIcon from './Icon/icon.vue';
+import PilotIcon from './Icon';
+import PilotAlert from './Alert';
 
-const components = [PilotButton, PilotIcon];
+const components = [PilotButton, PilotIcon, PilotAlert];
 
 const install = (app) => {
-  components.forEach((components) => {
-    app.component(components.name, components);
+  components.forEach((component) => {
+    app.component(component.name, component);
   });
 };
 
 export default {
   install,
-  ...components,
 };
 
-export { PilotButton, PilotIcon };
+export { PilotButton, PilotIcon, PilotAlert };

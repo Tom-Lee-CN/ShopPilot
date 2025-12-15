@@ -1,46 +1,29 @@
 <template>
   <div class="main-container">
-    <h1>测试页面</h1>
-    <div class="button-group">
-      <PilotButton type="primary" disabled>Disabled</PilotButton>
-      <PilotButton type="success" disabled>Disabled</PilotButton>
-      <PilotButton type="info" disabled>Disabled</PilotButton>
-      <PilotButton type="warning" disabled>Disabled</PilotButton>
-      <PilotButton type="danger" disabled>Disabled</PilotButton>
+    <h3>Button</h3>
+    <div class="row">
+      <pilot-button>Default</pilot-button>
+      <pilot-button type="primary">Primary</pilot-button>
+      <pilot-button type="success">Success</pilot-button>
+      <pilot-button type="info">Info</pilot-button>
+      <pilot-button type="warning">Warning</pilot-button>
+      <pilot-button type="danger">Danger</pilot-button>
     </div>
 
-    <h2>Icons</h2>
-    <div class="icon-group">
+    <h3>Icon</h3>
+    <div class="row">
       <pilot-icon name="edit" />
-      <pilot-icon name="share" />
       <pilot-icon name="delete" />
-      <pilot-icon name="loading" />
-      <pilot-icon name="arrow-left" />
-      <pilot-icon name="arrow-right" />
+      <pilot-icon name="share" />
+      <span> (Edit, Delete, Share)</span>
     </div>
 
-    <h2>Icon with Size and Color</h2>
-    <div class="icon-group">
-      <pilot-icon name="star" size="24px" />
-      <pilot-icon name="star-filled" size="24px" color="#f7ba2a" />
-      <pilot-icon name="circle-plus" size="30" color="green" />
-      <pilot-icon name="remove" :size="30" color="red" />
-    </div>
-
-    <h2>Icon in Button</h2>
-    <div class="button-group">
-      <PilotButton type="primary">
-        <pilot-icon name="edit" />
-        Edit
-      </PilotButton>
-      <PilotButton type="success">
-        <pilot-icon name="check" />
-        Success
-      </PilotButton>
-      <PilotButton type="info" plain>
-        More
-        <pilot-icon name="arrow-right" />
-      </PilotButton>
+    <h3>Alert</h3>
+    <div class="alert-row">
+      <pilot-alert title="Success" type="success" show-icon />
+      <pilot-alert title="Info" type="info" show-icon />
+      <pilot-alert title="Warning" type="warning" show-icon />
+      <pilot-alert title="Error" type="error" show-icon description="This is a description." />
     </div>
   </div>
 </template>
@@ -56,22 +39,28 @@ export default {
 
 <style scoped lang="scss">
 .main-container {
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-.button-group,
-.icon-group {
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
+  gap: 20px;
 }
 
-.pilot-button,
-.pilot-icon {
-  margin-right: 10px;
+h3 {
   margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.alert-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
 }
 </style>

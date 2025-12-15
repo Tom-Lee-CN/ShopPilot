@@ -50,3 +50,20 @@
     color: $color-white;
   }
 }
+
+/**
+ * 创建一个警告框 (alert) 的 mixin
+ * @param {Color} $color - 基础颜色
+ */
+@mixin alert-variant($color) {
+  background-color: color.scale($color, $lightness: 90%);
+  color: $color;
+
+  .pilot-alert__description {
+    color: $color;
+  }
+
+  .pilot-alert__close-btn {
+    color: $color;
+  }
+}
