@@ -1,50 +1,58 @@
-<script setup>
-import { useCounterStore } from '../stores/store';
-import { ref } from 'vue';
-const counter = useCounterStore();
-
-// 访问 state
-console.log(counter.count);
-
-// 访问 getter
-console.log(counter.doubleCount);
-
-// 调用 action
-counter.increment();
-defineProps({
-  msg: String,
-});
-
-const count = ref(0);
+<template>
+  <div class="main-container">
+    <h1>测试页面</h1>
+    <div class="row">
+      <PilotButton>Default</PilotButton>
+      <PilotButton type="primary">Primary</PilotButton>
+      <PilotButton type="success">Success</PilotButton>
+      <PilotButton type="info">Info</PilotButton>
+      <PilotButton type="warning">Warning</PilotButton>
+      <PilotButton type="danger">Danger</PilotButton>
+    </div>
+    <div class="row">
+      <PilotButton plain>Default</PilotButton>
+      <PilotButton type="primary" plain>Primary</PilotButton>
+      <PilotButton type="success" plain>Success</PilotButton>
+      <PilotButton type="info" plain>Info</PilotButton>
+      <PilotButton type="warning" plain>Warning</PilotButton>
+      <PilotButton type="danger" plain>Danger</PilotButton>
+    </div>
+    <div class="row">
+      <PilotButton type="primary" size="large">Large</PilotButton>
+      <PilotButton type="primary">Default</PilotButton>
+      <PilotButton type="primary" size="small">Small</PilotButton>
+    </div>
+    <div class="row">
+      <PilotButton type="primary" round>Round</PilotButton>
+      <PilotButton type="success" round>Round</PilotButton>
+      <PilotButton type="primary" disabled>Disabled</PilotButton>
+      <PilotButton type="success" plain disabled>Disabled</PilotButton>
+    </div>
+  </div>
+</template>
+<script>
+import PilotButton from '../packages/Button';
+export default {
+  name: 'HelloWorld',
+  components: {
+    PilotButton,
+  },
+};
 </script>
 
-<template>
-  <h1>{{ msg }}</h1>
-
-  <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
-  </div>
-
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank">create-vue</a>, the
-    official Vue + Vite starter
-  </p>
-  <p>
-    Learn more about IDE Support for Vue in the
-    <a href="https://vuejs.org/guide/scaling-up/tooling.html#ide-support" target="_blank"
-      >Vue Docs Scaling up Guide</a
-    >.
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
-</template>
-
-<style scoped>
-.read-the-docs {
-  color: #888;
+<style scoped lang="scss">
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.button-showcase {
+  padding: 20px;
+}
+.row {
+  margin-bottom: 20px;
+}
+.pilot-button {
+  margin-right: 12px;
 }
 </style>

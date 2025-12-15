@@ -1,0 +1,23 @@
+// 设计变量(Design Tokens) 用来集中定义我们整个 UI 库的颜色、字体、边框、间距等基础设计规范。
+
+// Color
+$primary-color: #409eff;
+$color-white: #ffffff;
+$success-color: #67c23a;
+$warning-color: #e6a23c;
+$danger-color: #f56c6c;
+$info-color: #909399;
+$border-color: #dcdfe6;
+$text-color-primary: #606266;
+
+$button-padding-y-large: 12px;
+$button-padding-x-large: 20px;
+$button-font-size-large: 16px;
+
+$button-padding-y-default: 8px;
+$button-padding-x-default: 15px;
+$button-font-size-default: 14px;
+
+$button-padding-y-small: 5px;
+$button-padding-x-small: 11px;
+$button-font-size-small: 12px;
