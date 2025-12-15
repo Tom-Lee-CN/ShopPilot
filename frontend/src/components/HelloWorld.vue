@@ -1,92 +1,26 @@
 <template>
   <div class="main-container">
-    <h3>Button</h3>
-    <div class="row">
-      <pilot-button>Default</pilot-button>
-      <pilot-button type="primary">Primary</pilot-button>
-      <pilot-button type="success">Success</pilot-button>
-      <pilot-button type="info">Info</pilot-button>
-      <pilot-button type="warning">Warning</pilot-button>
-      <pilot-button type="danger">Danger</pilot-button>
-    </div>
-
-    <h3>Icon</h3>
-    <div class="row">
-      <pilot-icon name="edit" />
-      <pilot-icon name="delete" />
-      <pilot-icon name="share" />
-      <span>(Icons: edit, delete, share)</span>
-    </div>
-
     <h3>Alert</h3>
     <div class="alert-row">
       <pilot-alert title="Success" type="success" show-icon />
       <pilot-alert title="Error" type="error" show-icon description="This is a description." />
     </div>
 
-    <h3>Card</h3>
-    <div class="card-row">
-      <pilot-card header="Simple Card"> This is the body content of a simple card. </pilot-card>
-
-      <pilot-card shadow="hover">
-        <template #header>
-          <h4>Card with Hover Shadow</h4>
-        </template>
-        <div>This card shows a shadow on hover.</div>
-        <template #footer>
-          <pilot-button type="primary">Action</pilot-button>
-        </template>
-      </pilot-card>
-
-      <pilot-card shadow="never"> This card has no shadow and no header/footer. </pilot-card>
-    </div>
-    <h3>Input</h3>
-    <div class="input-row">
-      <pilot-input
-        v-model="inputValue"
-        maxlength="20"
-        show-word-limit
-        clearable
-        placeholder="测试maxlength"
-      ></pilot-input>
-      <pilot-input v-model="clearableValue" placeholder="Clearable Input" clearable />
-      <pilot-input
-        v-model="passwordValue"
-        type="password"
-        placeholder="Password"
-        show-password
-        clearable
-      />
-      <pilot-input v-model="inputValue" disabled placeholder="Disabled" />
-    </div>
-    <div class="input-row">
-      <span>Input Value: {{ inputValue }}</span>
-      <br />
-      <span>Clearable Value: {{ clearableValue }}</span>
-      <br />
-      <span>Password Value: {{ passwordValue }}</span>
-    </div>
-    <h2>Textarea</h2>
-    <div class="input-row">
-      <pilot-textarea v-model="textareaValue" placeholder="请输入内容"></pilot-textarea>
-    </div>
-    <div class="input-row">
-      <pilot-textarea v-model="textareaValue" placeholder="高度自适应" autosize></pilot-textarea>
-    </div>
     <div class="input-row">
       <pilot-textarea v-model="textareaValue" placeholder="禁用状态" disabled></pilot-textarea>
     </div>
+    <h2>Select</h2>
     <div class="input-row">
-      <pilot-textarea v-model="textareaValue" placeholder="请输入内容"></pilot-textarea>
+      <pilot-select
+        v-model="selectValue"
+        :options="selectOptions"
+        placeholder="请选择一个选项"
+      ></pilot-select>
     </div>
     <div class="input-row">
-      <pilot-textarea
-        v-model="textareaValue"
-        maxlength="100"
-        show-word-limit
-        placeholder="测试maxlength"
-      ></pilot-textarea>
+      <pilot-select v-model="selectValue" :options="selectOptions" disabled></pilot-select>
     </div>
+    <p>当前选中的值是: {{ selectValue }}</p>
   </div>
 </template>
 
@@ -101,6 +35,14 @@ export default {
       clearableValue: 'Some initial text',
       passwordValue: '123456',
       textareaValue: '',
+      selectValue: '',
+      selectOptions: [
+        { label: '黄金糕', value: 'gold' },
+        { label: '双皮奶', value: 'milk' },
+        { label: '蚵仔煎', value: 'oyster' },
+        { label: '龙须面', value: 'noodle' },
+        { label: '北京烤鸭', value: 'duck' },
+      ],
     };
   },
 };
