@@ -42,7 +42,13 @@
     </div>
     <h3>Input</h3>
     <div class="input-row">
-      <pilot-input v-model="inputValue" placeholder="Please input" />
+      <pilot-input
+        v-model="inputValue"
+        maxlength="20"
+        show-word-limit
+        clearable
+        placeholder="测试maxlength"
+      ></pilot-input>
       <pilot-input v-model="clearableValue" placeholder="Clearable Input" clearable />
       <pilot-input
         v-model="passwordValue"
@@ -60,6 +66,27 @@
       <br />
       <span>Password Value: {{ passwordValue }}</span>
     </div>
+    <h2>Textarea</h2>
+    <div class="input-row">
+      <pilot-textarea v-model="textareaValue" placeholder="请输入内容"></pilot-textarea>
+    </div>
+    <div class="input-row">
+      <pilot-textarea v-model="textareaValue" placeholder="高度自适应" autosize></pilot-textarea>
+    </div>
+    <div class="input-row">
+      <pilot-textarea v-model="textareaValue" placeholder="禁用状态" disabled></pilot-textarea>
+    </div>
+    <div class="input-row">
+      <pilot-textarea v-model="textareaValue" placeholder="请输入内容"></pilot-textarea>
+    </div>
+    <div class="input-row">
+      <pilot-textarea
+        v-model="textareaValue"
+        maxlength="100"
+        show-word-limit
+        placeholder="测试maxlength"
+      ></pilot-textarea>
+    </div>
   </div>
 </template>
 
@@ -73,6 +100,7 @@ export default {
       inputValue: '',
       clearableValue: 'Some initial text',
       passwordValue: '123456',
+      textareaValue: '',
     };
   },
 };

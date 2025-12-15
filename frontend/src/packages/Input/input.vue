@@ -7,9 +7,13 @@
       :type="inputType"
       :placeholder="placeholder"
       :disabled="disabled"
+      :maxlength="maxlength"
       @input="handleInput"
     />
-    <span v-if="clearable" class="pilot-input__suffix">
+    <div
+      v-if="showClear || showPasswordToggle || (showWordLimit && maxlength)"
+      class="pilot-input__suffix"
+    >
       <!-- 清空图标 -->
       <pilot-icon
         v-if="showClear"
@@ -24,7 +28,10 @@
         :name="passwordIconName"
         @click="togglePasswordVisibility"
       />
-    </span>
+      <span v-if="showWordLimit && maxlength" class="pilot-input__count">
+        {{ textLength }}/{{ maxlength }}
+      </span>
+    </div>
   </div>
 </template>
 
@@ -60,6 +67,13 @@ export default {
       type: Boolean,
       default: false,
     },
+    maxlength: {
+      type: [Number, String],
+    },
+    showWordLimit: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -71,7 +85,8 @@ export default {
     inputClasses() {
       return {
         'is-disabled': this.disabled,
-        'pilot-input--suffix': this.clearable,
+        'pilot-input--suffix':
+          this.showClear || this.showPasswordToggle || (this.showWordLimit && this.maxlength),
       };
     },
     // 是否显示后缀容器
@@ -96,6 +111,10 @@ export default {
     // 动态计算密码图标的名称
     passwordIconName() {
       return this.passwordVisible ? 'view' : 'hide';
+    },
+    // 计算文本长度
+    textLength() {
+      return this.modelValue?.length || 0;
     },
   },
   methods: {
@@ -185,7 +204,11 @@ export default {
       color: #909399;
     }
   }
-
+  .pilot-input__count {
+    color: #909399;
+    font-size: 12px;
+    white-space: nowrap;
+  }
   // 如果同时显示两个图标，需要更大的右边距
   .pilot-input--suffix.show-both .pilot-input__inner {
     padding-right: 58px;
