@@ -1,26 +1,29 @@
 <template>
   <div class="main-container">
-    <h3>Alert</h3>
-    <div class="alert-row">
-      <pilot-alert title="Success" type="success" show-icon />
-      <pilot-alert title="Error" type="error" show-icon description="This is a description." />
+    <h3>Radio (当前选中: {{ radioValue }})</h3>
+    <div class="row">
+      <pilot-radio-group v-model="radioValue">
+        <pilot-radio label="1">选项1</pilot-radio>
+        <pilot-radio label="2">选项2</pilot-radio>
+      </pilot-radio-group>
     </div>
 
-    <div class="input-row">
-      <pilot-textarea v-model="textareaValue" placeholder="禁用状态" disabled></pilot-textarea>
+    <h3>Disabled Radio</h3>
+    <div class="row">
+      <pilot-radio-group v-model="radioValue" disabled>
+        <pilot-radio label="1">选项1（禁用组）</pilot-radio>
+        <pilot-radio label="2">选项2（禁用组）</pilot-radio>
+      </pilot-radio-group>
     </div>
-    <h2>Select</h2>
-    <div class="input-row">
-      <pilot-select
-        v-model="selectValue"
-        :options="selectOptions"
-        placeholder="请选择一个选项"
-      ></pilot-select>
+
+    <h3>Individually Disabled</h3>
+    <div class="row">
+      <pilot-radio-group v-model="radioValue">
+        <pilot-radio label="1">选项1</pilot-radio>
+        <pilot-radio label="2" disabled>选项2（单独禁用）</pilot-radio>
+        <pilot-radio label="3">选项3</pilot-radio>
+      </pilot-radio-group>
     </div>
-    <div class="input-row">
-      <pilot-select v-model="selectValue" :options="selectOptions" disabled></pilot-select>
-    </div>
-    <p>当前选中的值是: {{ selectValue }}</p>
   </div>
 </template>
 
@@ -31,18 +34,7 @@ export default {
   components: {},
   data() {
     return {
-      inputValue: '',
-      clearableValue: 'Some initial text',
-      passwordValue: '123456',
-      textareaValue: '',
-      selectValue: '',
-      selectOptions: [
-        { label: '黄金糕', value: 'gold' },
-        { label: '双皮奶', value: 'milk' },
-        { label: '蚵仔煎', value: 'oyster' },
-        { label: '龙须面', value: 'noodle' },
-        { label: '北京烤鸭', value: 'duck' },
-      ],
+      radioValue: '1',
     };
   },
 };

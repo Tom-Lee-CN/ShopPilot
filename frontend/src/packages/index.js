@@ -5,6 +5,8 @@ import PilotCard from './Card';
 import PilotInput from './Input';
 import PilotTextarea from './Textarea';
 import PilotSelect from './Select';
+import PilotRadio from './Radio';
+import PilotRadioGroup from './RadioGroup';
 
 const components = [
   PilotButton,
@@ -14,6 +16,8 @@ const components = [
   PilotInput,
   PilotTextarea,
   PilotSelect,
+  PilotRadio,
+  PilotRadioGroup,
 ];
 
 const install = (app) => {
@@ -26,4 +30,14 @@ export default {
   install,
 };
 
-export { PilotButton, PilotIcon, PilotAlert, PilotCard, PilotInput, PilotTextarea, PilotSelect };
+export {
+  PilotButton,
+  PilotIcon,
+  PilotAlert,
+  PilotCard,
+  PilotInput,
+  PilotTextarea,
+  PilotSelect,
+  PilotRadio,
+  PilotRadioGroup,
+};
