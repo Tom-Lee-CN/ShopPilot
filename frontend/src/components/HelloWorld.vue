@@ -1,32 +1,46 @@
 <template>
   <div class="main-container">
     <h1>测试页面</h1>
-    <div class="row">
-      <PilotButton>Default</PilotButton>
-      <PilotButton type="primary">Primary</PilotButton>
-      <PilotButton type="success">Success</PilotButton>
-      <PilotButton type="info">Info</PilotButton>
-      <PilotButton type="warning">Warning</PilotButton>
-      <PilotButton type="danger">Danger</PilotButton>
-    </div>
-    <div class="row">
-      <PilotButton plain>Default</PilotButton>
-      <PilotButton type="primary" plain>Primary</PilotButton>
-      <PilotButton type="success" plain>Success</PilotButton>
-      <PilotButton type="info" plain>Info</PilotButton>
-      <PilotButton type="warning" plain>Warning</PilotButton>
-      <PilotButton type="danger" plain>Danger</PilotButton>
-    </div>
-    <div class="row">
-      <PilotButton type="primary" size="large">Large</PilotButton>
-      <PilotButton type="primary">Default</PilotButton>
-      <PilotButton type="primary" size="small">Small</PilotButton>
-    </div>
-    <div class="row">
-      <PilotButton type="primary" round>Round</PilotButton>
-      <PilotButton type="success" round>Round</PilotButton>
+    <div class="button-group">
       <PilotButton type="primary" disabled>Disabled</PilotButton>
-      <PilotButton type="success" plain disabled>Disabled</PilotButton>
+      <PilotButton type="success" disabled>Disabled</PilotButton>
+      <PilotButton type="info" disabled>Disabled</PilotButton>
+      <PilotButton type="warning" disabled>Disabled</PilotButton>
+      <PilotButton type="danger" disabled>Disabled</PilotButton>
+    </div>
+
+    <h2>Icons</h2>
+    <div class="icon-group">
+      <pilot-icon name="edit" />
+      <pilot-icon name="share" />
+      <pilot-icon name="delete" />
+      <pilot-icon name="loading" />
+      <pilot-icon name="arrow-left" />
+      <pilot-icon name="arrow-right" />
+    </div>
+
+    <h2>Icon with Size and Color</h2>
+    <div class="icon-group">
+      <pilot-icon name="star" size="24px" />
+      <pilot-icon name="star-filled" size="24px" color="#f7ba2a" />
+      <pilot-icon name="circle-plus" size="30" color="green" />
+      <pilot-icon name="remove" :size="30" color="red" />
+    </div>
+
+    <h2>Icon in Button</h2>
+    <div class="button-group">
+      <PilotButton type="primary">
+        <pilot-icon name="edit" />
+        Edit
+      </PilotButton>
+      <PilotButton type="success">
+        <pilot-icon name="check" />
+        Success
+      </PilotButton>
+      <PilotButton type="info" plain>
+        More
+        <pilot-icon name="arrow-right" />
+      </PilotButton>
     </div>
   </div>
 </template>
@@ -46,13 +60,18 @@ export default {
   flex-direction: column;
   align-items: center;
 }
-.button-showcase {
-  padding: 20px;
-}
-.row {
+.button-group,
+.icon-group {
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
-.pilot-button {
-  margin-right: 12px;
+
+.pilot-button,
+.pilot-icon {
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 </style>

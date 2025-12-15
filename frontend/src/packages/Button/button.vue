@@ -55,23 +55,17 @@ export default {
   justify-content: center;
   align-items: center;
   line-height: 1;
+  gap: 5px;
   white-space: nowrap;
   cursor: pointer;
   background: $color-white;
   border: 1px solid $border-color;
   color: $text-color-primary;
   -webkit-appearance: none;
-  text-align: center;
   box-sizing: border-box;
   outline: none;
   margin: 0;
   user-select: none;
-
-  // // --- Sizing & Spacing ---
-  padding: 8px 15px;
-  font-size: 14px;
-  border-radius: 4px;
-  font-weight: 500;
 
   // --- Transitions ---
   transition:
