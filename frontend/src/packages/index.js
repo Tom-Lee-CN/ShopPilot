@@ -2,8 +2,9 @@ import PilotButton from './Button';
 import PilotIcon from './Icon';
 import PilotAlert from './Alert';
 import PilotCard from './Card';
+import PilotInput from './Input';
 
-const components = [PilotButton, PilotIcon, PilotAlert, PilotCard];
+const components = [PilotButton, PilotIcon, PilotAlert, PilotCard, PilotInput];
 
 const install = (app) => {
   components.forEach((component) => {
@@ -15,4 +16,4 @@ export default {
   install,
 };
 
-export { PilotButton, PilotIcon, PilotAlert, PilotCard };
+export { PilotButton, PilotIcon, PilotAlert, PilotCard, PilotInput };

@@ -40,6 +40,26 @@
 
       <pilot-card shadow="never"> This card has no shadow and no header/footer. </pilot-card>
     </div>
+    <h3>Input</h3>
+    <div class="input-row">
+      <pilot-input v-model="inputValue" placeholder="Please input" />
+      <pilot-input v-model="clearableValue" placeholder="Clearable Input" clearable />
+      <pilot-input
+        v-model="passwordValue"
+        type="password"
+        placeholder="Password"
+        show-password
+        clearable
+      />
+      <pilot-input v-model="inputValue" disabled placeholder="Disabled" />
+    </div>
+    <div class="input-row">
+      <span>Input Value: {{ inputValue }}</span>
+      <br />
+      <span>Clearable Value: {{ clearableValue }}</span>
+      <br />
+      <span>Password Value: {{ passwordValue }}</span>
+    </div>
   </div>
 </template>
 
@@ -48,6 +68,13 @@ export default {
   name: 'HelloWorld',
   // 全局注册后，这里保持为空
   components: {},
+  data() {
+    return {
+      inputValue: '',
+      clearableValue: 'Some initial text',
+      passwordValue: '123456',
+    };
+  },
 };
 </script>
 
@@ -86,5 +113,13 @@ h3 {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   width: 100%;
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
+  align-items: center;
 }
 </style>
