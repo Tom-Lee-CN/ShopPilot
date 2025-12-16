@@ -9,6 +9,7 @@ import PilotRadio from './Radio';
 import PilotRadioGroup from './RadioGroup';
 import Row from './Row';
 import Col from './Col';
+import Modal from './Modal';
 
 const components = [
   PilotButton,
@@ -22,6 +23,7 @@ const components = [
   PilotRadioGroup,
   Row,
   Col,
+  Modal,
 ];
 
 const install = (app) => {
@@ -46,4 +48,5 @@ export {
   PilotRadioGroup,
   Row,
   Col,
+  Modal,
 };

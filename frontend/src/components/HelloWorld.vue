@@ -114,6 +114,25 @@
           style="width: 220px"
         />
       </div>
+      <div v-if="activeComponent === 'Modal'" class="demo-section">
+        <h2>模态框 (Modal)</h2>
+        <pilot-button type="primary" @click="modalVisible = true">打开模态框</pilot-button>
+        <pilot-modal v-model="modalVisible" title="这是一个模态框">
+          <p>这里是模态框的内容。</p>
+          <p>你可以放置任何文本或组件。</p>
+          <template #footer>
+            <pilot-button @click="modalVisible = false">取消</pilot-button>
+            <pilot-button type="primary" @click="modalVisible = false">确认</pilot-button>
+          </template>
+        </pilot-modal>
+      </div>
+      <div v-if="activeComponent === 'Message'" class="demo-section">
+        <h2>消息提示 (Message)</h2>
+        <pilot-button @click="showMessage('success')">成功</pilot-button>
+        <pilot-button @click="showMessage('info')">消息</pilot-button>
+        <pilot-button @click="showMessage('warning')">警告</pilot-button>
+        <pilot-button @click="showMessage('danger')">错误</pilot-button>
+      </div>
     </main>
   </div>
 </template>
@@ -142,7 +161,17 @@ export default {
   },
   data() {
     return {
-      componentNames: ['Button', 'Alert', 'Card', 'Input', 'Textarea', 'Radio', 'Select'],
+      componentNames: [
+        'Message',
+        'Button',
+        'Alert',
+        'Card',
+        'Input',
+        'Textarea',
+        'Radio',
+        'Select',
+        'Modal',
+      ],
       activeComponent: 'Button',
       inputValue: '',
       textareaValue: '',
@@ -153,7 +182,17 @@ export default {
         { label: '选项二', value: 'option2' },
         { label: '选项三', value: 'option3' },
       ],
+      modalVisible: false,
     };
+  },
+  methods: {
+    showMessage(type) {
+      this.$message({
+        type: type,
+        message: `这是一个 ${type} 123消息提示`,
+        showClose: true,
+      });
+    },
   },
 };
 </script>
