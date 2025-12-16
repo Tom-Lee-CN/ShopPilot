@@ -28,29 +28,29 @@ export default {
 </script>
 <style scoped lang="scss">
 .pilot-card {
-  border: 1px solid #e4e7ed;
-  border-radius: 4px;
-  background-color: #fff;
+  border: $border-width-base solid var(--pilot-border-color-light);
+  border-radius: $card-border-radius;
+  background-color: var(--pilot-fill-color-blank);
   overflow: hidden;
-  color: #303133;
+  color: var(--pilot-text-color-primary);
   transition: 0.3s;
   &.is-always-shadow {
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: $card-box-shadow;
   }
   &.is-hover-shadow:hover {
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: $card-box-shadow;
   }
   &__header {
-    padding: 18px 20px;
-    border-bottom: 1px solid #e4e7ed;
+    padding: $card-header-padding-y $card-header-padding-x;
+    border-bottom: $border-width-base solid var(--pilot-border-color-light);
     box-sizing: border-box;
   }
   &__body {
-    padding: 20px;
+    padding: $card-padding;
   }
   &__footer {
-    padding: 18px 20px;
-    border-top: 1px solid #e4e7ed;
+    padding: $card-header-padding-y $card-header-padding-x;
+    border-top: 1px solid var(--pilot-border-color-light);
     box-sizing: border-box;
   }
 }

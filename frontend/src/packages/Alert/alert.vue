@@ -22,7 +22,7 @@ import pilotIcon from '../Icon/icon.vue';
 const TYPE_CLASSES_MAP = {
   success: 'success-filled',
   warning: 'warning-filled',
-  error: 'circle-close-filled',
+  danger: 'circle-close-filled',
   info: 'info-filled',
 };
 export default {
@@ -66,15 +66,14 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 .pilot-alert {
   width: 100%;
-  padding: 8px 16px;
+  padding: $alert-padding-y $alert-padding-x;
   margin: 0;
-  border-radius: 4px;
+  border-radius: $alert-border-radius;
   position: relative;
-  background-color: #fff;
+  background-color: var(--pilot-fill-color-blank);
   overflow: hidden;
   opacity: 1;
   display: flex;
@@ -93,13 +92,13 @@ export default {
   &--info {
     @include alert-variant($info-color);
   }
-  &--error {
+  &--danger {
     @include alert-variant($danger-color);
   }
   &__icon {
-    font-size: 16px;
-    width: 16px;
-    margin-right: 10px;
+    font-size: $alert-icon-size;
+    width: $alert-icon-size;
+    margin-right: $alert-icon-margin-right;
   }
   &__content {
     display: table-cell;
@@ -107,7 +106,7 @@ export default {
     width: 100%;
   }
   &__title {
-    font-size: 13px;
+    font-size: $alert-title-font-size;
     line-height: 18px;
     display: block;
     margin-bottom: 0.1rem;
@@ -116,11 +115,11 @@ export default {
     }
   }
   &__description {
-    font-size: 12px;
+    font-size: $alert-description-font-size;
     margin: 5px 0 0 0;
   }
   &__close-btn {
-    font-size: 12px;
+    font-size: $alert-close-font-size;
     position: absolute;
     top: 12px;
     right: 15px;

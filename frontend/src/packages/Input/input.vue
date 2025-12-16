@@ -143,14 +143,14 @@ export default {
 <style scoped lang="scss">
 .pilot-input {
   position: relative;
-  font-size: 14px;
+  font-size: $input-font-size;
   display: inline-block;
   width: 100%;
 
   &.is-disabled .pilot-input__inner {
-    background-color: #f5f7fa;
-    border-color: #e4e7ed;
-    color: #c0c4cc;
+    background-color: $input-disabled-bg;
+    border-color: $input-disabled-border;
+    color: $input-disabled-color;
     cursor: not-allowed;
   }
 
@@ -160,28 +160,28 @@ export default {
 }
 .pilot-input__inner {
   -webkit-appearance: none;
-  background-color: #fff;
+  background-color: $color-white;
   background-image: none;
-  border-radius: 4px;
-  border: 1px solid #dcdfe6;
+  border-radius: $input-border-radius;
+  border: $border-width-base solid $border-color;
   box-sizing: border-box;
-  color: #606266;
+  color: $input-color;
   display: inline-block;
   font-size: inherit;
-  height: 40px;
-  line-height: 40px;
+  height: $input-height;
+  line-height: $input-height;
   outline: none;
-  padding: 0 15px;
+  padding: 0 $input-padding-x;
   transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   width: 100%;
 
   &:focus {
     outline: none;
-    border-color: #409eff;
+    border-color: $input-focus-border-color;
   }
 
   &::placeholder {
-    color: #c0c4cc;
+    color: $input-placeholder-color;
   }
 }
 
@@ -192,7 +192,7 @@ export default {
   height: 100%;
   display: flex;
   align-items: center;
-  color: #c0c4cc;
+  color: $input-suffix-icon-color;
   cursor: pointer;
   transition: color 0.2s;
   gap: 8px; // 为多个图标之间提供间距
@@ -201,12 +201,12 @@ export default {
     cursor: pointer;
     transition: color 0.2s;
     &:hover {
-      color: #909399;
+      color: $input-suffix-icon-hover-color;
     }
   }
   .pilot-input__count {
-    color: #909399;
-    font-size: 12px;
+    color: $text-color-secondary;
+    font-size: $font-size-extra-small;
     white-space: nowrap;
   }
   // 如果同时显示两个图标，需要更大的右边距

@@ -102,9 +102,9 @@ export default {
   &.is-disabled {
     cursor: not-allowed;
     .pilot-select__input {
-      background-color: #f5f7fa;
-      border-color: #e4e7ed;
-      color: #c0c4cc;
+      background-color: var(--pilot-select-disabled-bg);
+      border-color: var(--pilot-select-disabled-border-color);
+      color: var(--pilot-select-disabled-color);
     }
   }
 }
@@ -113,20 +113,20 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 40px;
-  line-height: 40px;
-  padding: 0 15px;
-  border: 1px solid #dcdfe6;
-  border-radius: 4px;
-  background-color: #fff;
+  height: var(--pilot-select-input-height);
+  line-height: var(--pilot-select-input-height);
+  padding: 0 var(--pilot-input-padding-x);
+  border: 1px solid var(--pilot-select-input-border-color);
+  border-radius: var(--pilot-select-input-border-radius);
+  background-color: var(--pilot-color-white);
   transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 
   &:hover {
-    border-color: #c0c4cc;
+    border-color: var(--pilot-select-input-hover-border-color);
   }
 
   .is-placeholder {
-    color: #c0c4cc;
+    color: var(--pilot-select-input-placeholder-color);
   }
 }
 
@@ -143,25 +143,26 @@ export default {
   left: 0;
   width: 100%;
   z-index: 10;
-  border: 1px solid #e4e7ed;
-  border-radius: 4px;
-  background-color: #fff;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--pilot-select-dropdown-border-color);
+  border-radius: var(--pilot-select-input-border-radius);
+  background-color: var(--pilot-select-dropdown-bg);
+  box-shadow: var(--pilot-select-dropdown-shadow);
 }
 
 .pilot-select__options {
   list-style: none;
-  padding: 6px 0;
+  padding: var(--pilot-select-dropdown-padding);
   margin: 0;
   max-height: 274px;
   overflow: auto;
 }
 
 .pilot-select__option {
-  padding: 0 20px;
-  height: 34px;
-  line-height: 34px;
-  font-size: 14px;
+  padding: 0 var(--pilot-spacing-base);
+  height: var(--pilot-select-option-height);
+  line-height: var(--pilot-select-option-height);
+  font-size: var(--pilot-select-option-font-size);
+  color: var(--pilot-select-option-text-color);
   color: #606266;
   cursor: pointer;
   white-space: nowrap;
@@ -169,12 +170,12 @@ export default {
   text-overflow: ellipsis;
 
   &:hover {
-    background-color: #f5f7fa;
+    background-color: var(--pilot-select-option-hover-bg);
   }
 
   &.is-selected {
-    color: #409eff;
-    font-weight: 700;
+    color: var(--pilot-select-option-selected-color);
+    font-weight: var(--pilot-select-option-selected-font-weight);
   }
 }
 

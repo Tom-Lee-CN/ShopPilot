@@ -90,36 +90,36 @@ export default {
   display: inline-block;
   width: 100%;
   vertical-align: bottom;
-  font-size: 14px;
+  font-size: var(--pilot-font-size-base);
 }
 
 .pilot-textarea__inner {
   display: block;
   box-sizing: border-box;
   width: 100%;
-  padding: 5px 15px;
-  line-height: 1.5;
-  color: #606266;
-  background-color: #fff;
+  padding: var(--pilot-textarea-padding-y) var(--pilot-textarea-padding-x);
+  line-height: var(--pilot-textarea-line-height);
+  color: var(--pilot-textarea-color);
+  background-color: var(--pilot-textarea-bg);
   background-image: none;
-  border: 1px solid #dcdfe6;
-  border-radius: 4px;
+  border: 1px solid var(--pilot-textarea-border-color);
+  border-radius: var(--pilot-textarea-border-radius);
   transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   resize: vertical; // 允许用户手动调整高度
 
   &::placeholder {
-    color: #c0c4cc;
+    color: var(--pilot-textarea-placeholder-color);
   }
 
   &:focus {
     outline: none;
-    border-color: #409eff;
+    border-color: var(--pilot-textarea-focus-border-color);
   }
 
   &:disabled {
-    background-color: #f5f7fa;
-    border-color: #e4e7ed;
-    color: #c0c4cc;
+    background-color: var(--pilot-textarea-disabled-bg);
+    border-color: var(--pilot-textarea-disabled-border-color);
+    color: var(--pilot-textarea-disabled-color);
     cursor: not-allowed;
   }
 }
@@ -128,10 +128,10 @@ export default {
   position: absolute;
   bottom: 5px;
   right: 15px;
-  color: #909399;
-  font-size: 12px;
+  color: var(--pilot-textarea-count-color);
+  font-size: var(--pilot-textarea-count-font-size);
   pointer-events: none;
-  background-color: #fff;
+  background-color: var(--pilot-textarea-bg);
   padding-left: 4px;
 }
 </style>

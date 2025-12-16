@@ -1,23 +1,321 @@
-// 设计变量(Design Tokens) 用来集中定义我们整个 UI 库的颜色、字体、边框、间距等基础设计规范。
+// ==========================================================================
+// Design Tokens
+// ==========================================================================
+//
+// 本文件集中定义了整个 UI 库的设计令牌 (Design Tokens)。
+// 设计令牌是所有设计规范（如颜色、排版、间距等）的唯一真实来源 (Single Source of Truth)。
+//
+// 我们定义了两种类型的变量：
+// 1. Sass 变量：用于编译时逻辑（例如，在 mixin 或函数中）。以 `$` 开头。
+// 2. CSS 自定义属性 (CSS 变量)：用于运行时样式。它们允许在浏览器中动态更改样式（例如，用于主题切换）。
+//    它们在 `:root` 作用域内定义，并以 `--` 开头。
 
-// Color
+// ==========================================================================
+// Sass 变量 (用于编译时逻辑)
+// ==========================================================================
+
+// --------------------------------------------------------------------------
+// 颜色 (Colors)
+// --------------------------------------------------------------------------
+
+// 品牌色 (Brand Colors)
 $primary-color: #409eff;
-$color-white: #ffffff;
 $success-color: #67c23a;
 $warning-color: #e6a23c;
 $danger-color: #f56c6c;
 $info-color: #909399;
-$border-color: #dcdfe6;
-$text-color-primary: #606266;
 
-$button-padding-y-large: 12px;
-$button-padding-x-large: 20px;
-$button-font-size-large: 16px;
+// 文字色 (Text Colors)
+$text-color-primary: #303133; // 主要文字
+$text-color-regular: #606266; // 常规文字
+$text-color-secondary: #909399; // 次要文字 (如辅助信息、说明)
+$text-color-placeholder: #c0c4cc; // 表单占位符
 
-$button-padding-y-default: 8px;
-$button-padding-x-default: 15px;
-$button-font-size-default: 14px;
+// 边框色 (Border Colors)
+$border-color: #dcdfe6; // 默认边框色
+$border-color-light: #e4e7ed;
+$border-color-lighter: #ebeef5;
+$border-color-extra-light: #f2f6fc;
 
-$button-padding-y-small: 5px;
-$button-padding-x-small: 11px;
-$button-font-size-small: 12px;
+// 填充色 (Fill Colors / Backgrounds)
+$fill-color-blank: #ffffff; // 空白页背景
+$fill-color-light: #f5f7fa; // 浅色背景 (如卡片、表格)
+
+// 基础色 (Basic Colors)
+$color-white: #ffffff;
+$color-black: #000000;
+
+// --------------------------------------------------------------------------
+// 边框 (Border)
+// --------------------------------------------------------------------------
+$border-width-base: 1px;
+$border-style-base: solid;
+$border-base: $border-width-base $border-style-base $border-color; // 复合边框属性
+
+// --------------------------------------------------------------------------
+// 字体 (Font)
+// --------------------------------------------------------------------------
+// 字重 (Font Weights)
+$font-weight-primary: 500;
+
+// 字号 (Font Sizes)
+$font-size-extra-large: 20px;
+$font-size-large: 18px;
+$font-size-medium: 16px;
+$font-size-base: 14px;
+$font-size-small: 13px;
+$font-size-extra-small: 12px;
+
+// --------------------------------------------------------------------------
+// 按钮组件 (Button Component)
+// --------------------------------------------------------------------------
+// 内边距 (Padding)
+$button-padding-y-default: 12px;
+$button-padding-x-default: 20px;
+$button-padding-y-large: 14px;
+$button-padding-x-large: 22px;
+$button-padding-y-small: 9px;
+$button-padding-x-small: 15px;
+
+// 圆角 (Border Radius)
+$button-border-radius-default: 4px;
+$button-border-radius-round: 20px;
+
+// --------------------------------------------------------------------------
+// 警告框组件 (Alert Component)
+// --------------------------------------------------------------------------
+$alert-padding-y: 8px;
+$alert-padding-x: 16px;
+$alert-border-radius: 4px;
+$alert-title-font-size: $font-size-small; // 13px
+$alert-description-font-size: $font-size-extra-small; // 12px
+$alert-icon-size: 16px;
+$alert-icon-margin-right: 10px;
+$alert-close-font-size: $font-size-extra-small; // 12px
+
+// --------------------------------------------------------------------------
+// 卡片组件 (Card Component)
+// --------------------------------------------------------------------------
+$card-border-radius: 4px;
+$card-padding: 20px;
+$card-header-padding-y: 18px;
+$card-header-padding-x: 20px;
+$card-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+
+// --------------------------------------------------------------------------
+// 输入框组件 (Input Component)
+// --------------------------------------------------------------------------
+$input-height: 40px;
+$input-padding-x: 15px;
+$input-border-radius: 4px;
+$input-font-size: $font-size-base;
+$input-color: $text-color-regular;
+$input-placeholder-color: $text-color-placeholder;
+$input-disabled-bg: $fill-color-light;
+$input-disabled-border: $border-color-light;
+$input-disabled-color: $text-color-placeholder;
+$input-focus-border-color: $primary-color;
+$input-suffix-right: 10px;
+$input-suffix-icon-color: $text-color-placeholder;
+$input-suffix-icon-hover-color: $text-color-secondary;
+
+// --------------------------------------------------------------------------
+// Radio Component
+// --------------------------------------------------------------------------
+$radio-font-size: $font-size-base !default;
+$radio-font-weight: $font-weight-primary !default;
+$radio-text-color: $text-color-regular !default;
+$radio-input-height: 14px !default;
+$radio-input-width: 14px !default;
+$radio-input-border-radius: 100% !default;
+$radio-input-border-color: $border-color !default;
+$radio-input-background-color: $color-white !default;
+$radio-input-dot-size: 4px !default;
+$radio-input-dot-color: $color-white !default;
+$radio-disabled-text-color: $text-color-placeholder !default;
+$radio-label-padding-left: 5px !default;
+$radio-margin-right: 30px !default;
+
+// --------------------------------------------------------------------------
+// Select Component
+// --------------------------------------------------------------------------
+$select-input-height: $input-height !default;
+$select-input-color: $input-color !default;
+$select-input-placeholder-color: $input-placeholder-color !default;
+$select-input-border-color: $border-color !default;
+$select-input-border-radius: $input-border-radius !default;
+$select-input-hover-border-color: $text-color-placeholder !default;
+$select-disabled-bg: $input-disabled-bg !default;
+$select-disabled-border-color: $input-disabled-border !default;
+$select-disabled-color: $input-disabled-color !default;
+$select-dropdown-bg: $color-white !default;
+$select-dropdown-shadow: $card-box-shadow !default;
+$select-dropdown-border-color: $border-color-light !default;
+$select-dropdown-padding: 6px 0 !default;
+$select-option-height: 34px !default;
+$select-option-font-size: $font-size-base !default;
+$select-option-text-color: $text-color-regular !default;
+$select-option-hover-bg: $fill-color-light !default;
+$select-option-selected-color: $primary-color !default;
+$select-option-selected-font-weight: 700 !default;
+
+// --------------------------------------------------------------------------
+// Textarea Component
+// --------------------------------------------------------------------------
+$textarea-padding-y: 5px !default;
+$textarea-padding-x: 15px !default;
+$textarea-line-height: 1.5 !default;
+$textarea-color: $input-color !default;
+$textarea-bg: $color-white !default;
+$textarea-border-color: $border-color !default;
+$textarea-border-radius: $input-border-radius !default;
+$textarea-placeholder-color: $input-placeholder-color !default;
+$textarea-focus-border-color: $input-focus-border-color !default;
+$textarea-disabled-bg: $input-disabled-bg !default;
+$textarea-disabled-border-color: $input-disabled-border !default;
+$textarea-disabled-color: $input-disabled-color !default;
+$textarea-count-color: $text-color-secondary !default;
+$textarea-count-font-size: $font-size-extra-small !default;
+
+// ==========================================================================
+// CSS 自定义属性 (用于运行时样式)
+// ==========================================================================
+//
+// 这些变量会暴露给浏览器，可以直接在组件样式中使用。
+// 它们由上面的 Sass 变量生成，以确保一致性。
+//
+:root {
+  // 颜色 (Colors)
+  --pilot-color-primary: #{$primary-color};
+  --pilot-color-success: #{$success-color};
+  --pilot-color-warning: #{$warning-color};
+  --pilot-color-danger: #{$danger-color};
+  --pilot-color-info: #{$info-color};
+
+  // 文字色 (Text Colors)
+  --pilot-text-color-primary: #{$text-color-primary};
+  --pilot-text-color-regular: #{$text-color-regular};
+  --pilot-text-color-secondary: #{$text-color-secondary};
+  --pilot-text-color-placeholder: #{$text-color-placeholder};
+
+  // 边框色 (Border Colors)
+  --pilot-border-color: #{$border-color};
+  --pilot-border-color-light: #{$border-color-light};
+  --pilot-border-color-lighter: #{$border-color-lighter};
+  --pilot-border-color-extra-light: #{$border-color-extra-light};
+  --pilot-border-base: #{$border-base};
+
+  // 填充色 (Fill Colors)
+  --pilot-fill-color-blank: #{$fill-color-blank};
+  --pilot-fill-color-light: #{$fill-color-light};
+
+  // 基础色 (Basic Colors)
+  --pilot-color-white: #{$color-white};
+  --pilot-color-black: #{$color-black};
+
+  // 字体 (Font)
+  --pilot-font-weight-primary: #{$font-weight-primary};
+  --pilot-font-size-extra-large: #{$font-size-extra-large};
+  --pilot-font-size-large: #{$font-size-large};
+  --pilot-font-size-medium: #{$font-size-medium};
+  --pilot-font-size-base: #{$font-size-base};
+  --pilot-font-size-small: #{$font-size-small};
+  --pilot-font-size-extra-small: #{$font-size-extra-small};
+
+  // 间距 (Spacing)
+  --pilot-spacing-base: 20px;
+
+  // 按钮组件 (Button Component)
+  --pilot-button-padding-y-default: #{$button-padding-y-default};
+  --pilot-button-padding-x-default: #{$button-padding-x-default};
+  --pilot-button-padding-y-large: #{$button-padding-y-large};
+  --pilot-button-padding-x-large: #{$button-padding-x-large};
+  --pilot-button-padding-y-small: #{$button-padding-y-small};
+  --pilot-button-padding-x-small: #{$button-padding-x-small};
+  --pilot-button-border-radius-default: #{$button-border-radius-default};
+  --pilot-button-border-radius-round: #{$button-border-radius-round};
+
+  // 警告框组件 (Alert Component)
+  --pilot-alert-padding-y: #{$alert-padding-y};
+  --pilot-alert-padding-x: #{$alert-padding-x};
+  --pilot-alert-border-radius: #{$alert-border-radius};
+  --pilot-alert-title-font-size: #{$alert-title-font-size};
+  --pilot-alert-description-font-size: #{$alert-description-font-size};
+  --pilot-alert-icon-size: #{$alert-icon-size};
+  --pilot-alert-icon-margin-right: #{$alert-icon-margin-right};
+  --pilot-alert-close-font-size: #{$alert-close-font-size};
+
+  // 卡片组件 (Card Component)
+  --pilot-card-border-radius: #{$card-border-radius};
+  --pilot-card-padding: #{$card-padding};
+  --pilot-card-header-padding-y: #{$card-header-padding-y};
+  --pilot-card-header-padding-x: #{$card-header-padding-x};
+  --pilot-card-box-shadow: #{$card-box-shadow};
+
+  // 输入框组件 (Input Component)
+  --pilot-input-height: #{$input-height};
+  --pilot-input-padding-x: #{$input-padding-x};
+  --pilot-input-border-radius: #{$input-border-radius};
+  --pilot-input-font-size: #{$input-font-size};
+  --pilot-input-color: #{$input-color};
+  --pilot-input-placeholder-color: #{$input-placeholder-color};
+  --pilot-input-disabled-bg: #{$input-disabled-bg};
+  --pilot-input-disabled-border: #{$input-disabled-border};
+  --pilot-input-disabled-color: #{$input-disabled-color};
+  --pilot-input-focus-border-color: #{$input-focus-border-color};
+  --pilot-input-suffix-right: #{$input-suffix-right};
+  --pilot-input-suffix-icon-color: #{$input-suffix-icon-color};
+  --pilot-input-suffix-icon-hover-color: #{$input-suffix-icon-hover-color};
+
+  // Radio Component
+  --pilot-radio-font-size: #{$radio-font-size};
+  --pilot-radio-font-weight: #{$radio-font-weight};
+  --pilot-radio-text-color: #{$radio-text-color};
+  --pilot-radio-input-height: #{$radio-input-height};
+  --pilot-radio-input-width: #{$radio-input-width};
+  --pilot-radio-input-border-radius: #{$radio-input-border-radius};
+  --pilot-radio-input-border-color: #{$radio-input-border-color};
+  --pilot-radio-input-background-color: #{$radio-input-background-color};
+  --pilot-radio-input-dot-size: #{$radio-input-dot-size};
+  --pilot-radio-input-dot-color: #{$radio-input-dot-color};
+  --pilot-radio-disabled-text-color: #{$radio-disabled-text-color};
+  --pilot-radio-label-padding-left: #{$radio-label-padding-left};
+  --pilot-radio-margin-right: #{$radio-margin-right};
+
+  // Select Component
+  --pilot-select-input-height: #{$select-input-height};
+  --pilot-select-input-color: #{$select-input-color};
+  --pilot-select-input-placeholder-color: #{$select-input-placeholder-color};
+  --pilot-select-input-border-color: #{$select-input-border-color};
+  --pilot-select-input-border-radius: #{$select-input-border-radius};
+  --pilot-select-input-hover-border-color: #{$select-input-hover-border-color};
+  --pilot-select-disabled-bg: #{$select-disabled-bg};
+  --pilot-select-disabled-border-color: #{$select-disabled-border-color};
+  --pilot-select-disabled-color: #{$select-disabled-color};
+  --pilot-select-dropdown-bg: #{$select-dropdown-bg};
+  --pilot-select-dropdown-shadow: #{$select-dropdown-shadow};
+  --pilot-select-dropdown-border-color: #{$select-dropdown-border-color};
+  --pilot-select-dropdown-padding: #{$select-dropdown-padding};
+  --pilot-select-option-height: #{$select-option-height};
+  --pilot-select-option-font-size: #{$select-option-font-size};
+  --pilot-select-option-text-color: #{$select-option-text-color};
+  --pilot-select-option-hover-bg: #{$select-option-hover-bg};
+  --pilot-select-option-selected-color: #{$select-option-selected-color};
+  --pilot-select-option-selected-font-weight: #{$select-option-selected-font-weight};
+
+  // Textarea Component
+  --pilot-textarea-padding-y: #{$textarea-padding-y};
+  --pilot-textarea-padding-x: #{$textarea-padding-x};
+  --pilot-textarea-line-height: #{$textarea-line-height};
+  --pilot-textarea-color: #{$textarea-color};
+  --pilot-textarea-bg: #{$textarea-bg};
+  --pilot-textarea-border-color: #{$textarea-border-color};
+  --pilot-textarea-border-radius: #{$textarea-border-radius};
+  --pilot-textarea-placeholder-color: #{$textarea-placeholder-color};
+  --pilot-textarea-focus-border-color: #{$textarea-focus-border-color};
+  --pilot-textarea-disabled-bg: #{$textarea-disabled-bg};
+  --pilot-textarea-disabled-border-color: #{$textarea-disabled-border-color};
+  --pilot-textarea-disabled-color: #{$textarea-disabled-color};
+  --pilot-textarea-count-color: #{$textarea-count-color};
+  --pilot-textarea-count-font-size: #{$textarea-count-font-size};
+}

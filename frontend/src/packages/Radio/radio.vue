@@ -65,15 +65,15 @@ export default {
 
 <style lang="scss" scoped>
 .pilot-radio {
-  color: #606266;
-  font-weight: 500;
+  color: var(--pilot-radio-text-color);
+  font-weight: var(--pilot-radio-font-weight);
   position: relative; /* 关键：作为原生input的定位父级 */
   cursor: pointer;
   display: inline-flex; /* 使用flex进行垂直对齐，最稳妥 */
   align-items: center;
   white-space: nowrap;
-  font-size: 14px;
-  margin-right: 30px;
+  font-size: var(--pilot-radio-font-size);
+  margin-right: var(--pilot-radio-margin-right);
   user-select: none;
 
   &:last-child {
@@ -82,44 +82,44 @@ export default {
 
   &.is-disabled {
     cursor: not-allowed;
-    color: #c0c4cc;
+    color: var(--pilot-radio-disabled-text-color);
   }
 
   &.is-checked {
     .pilot-radio__inner {
-      border-color: #409eff;
-      background: #409eff;
+      border-color: var(--pilot-color-primary);
+      background: var(--pilot-color-primary);
       &::after {
         transform: translate(-50%, -50%) scale(1);
       }
     }
     .pilot-radio__label {
-      color: #409eff;
+      color: var(--pilot-color-primary);
     }
   }
 }
 
 .pilot-radio__inner {
-  border: 1px solid #dcdfe6;
-  border-radius: 100%;
-  width: 14px;
-  height: 14px;
-  background-color: #fff;
+  border: 1px solid var(--pilot-radio-input-border-color);
+  border-radius: var(--pilot-radio-input-border-radius);
+  width: var(--pilot-radio-input-width);
+  height: var(--pilot-radio-input-height);
+  background-color: var(--pilot-radio-input-background-color);
   position: relative; /* 作为内部小圆点的定位父级 */
   display: inline-block;
   box-sizing: border-box;
   transition: border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
 
   &:hover {
-    border-color: #409eff;
+    border-color: var(--pilot-color-primary);
   }
 
   &::after {
     content: '';
-    width: 4px;
-    height: 4px;
-    border-radius: 100%;
-    background-color: #fff;
+    width: var(--pilot-radio-input-dot-size);
+    height: var(--pilot-radio-input-dot-size);
+    border-radius: var(--pilot-radio-input-border-radius);
+    background-color: var(--pilot-radio-input-dot-color);
     position: absolute;
     left: 50%;
     top: 50%;
@@ -142,6 +142,6 @@ export default {
 }
 
 .pilot-radio__label {
-  padding-left: 5px;
+  padding-left: var(--pilot-radio-label-padding-left);
 }
 </style>

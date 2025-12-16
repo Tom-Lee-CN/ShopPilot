@@ -49,95 +49,105 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@use '../../styles/mixins.scss' as *;
+@use 'sass:color';
+
 .pilot-button {
   // --- Reset & Basic Layout ---
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-block;
   line-height: 1;
-  gap: 5px;
   white-space: nowrap;
   cursor: pointer;
-  background: $color-white;
-  border: 1px solid $border-color;
-  color: $text-color-primary;
+  background: var(--pilot-color-white);
+  border: 1px solid var(--pilot-border-color);
+  color: var(--pilot-text-color-regular);
   -webkit-appearance: none;
+  text-align: center;
   box-sizing: border-box;
   outline: none;
   margin: 0;
+  transition: 0.1s;
+  font-weight: 500;
   user-select: none;
+  padding: var(--pilot-button-padding-y-default) var(--pilot-button-padding-x-default);
+  font-size: var(--pilot-font-size-base);
+  border-radius: var(--pilot-button-border-radius-default);
+  // &:hover,
+  // &:focus {
+  //   color: var(--pilot-color-primary);
+  //   border-color: var(--pilot-color-primary);
+  //   background-color: color.mix($color-white, $primary-color, 90%);
+  // }
 
-  // --- Transitions ---
-  transition:
-    0.1s background-color,
-    0.1s border-color,
-    0.1s color,
-    0.1s box-shadow;
+  // &:active {
+  //   color: color.scale($primary-color, $lightness: -10%);
+  //   border-color: color.scale($primary-color, $lightness: -10%);
+  //   outline: none;
+  // }
 
-  // --- Default State for Primary Button ---
-  &--default {
-    padding: $button-padding-y-default $button-padding-x-default;
-    font-size: $button-font-size-default;
-    border-radius: 4px;
-  }
-  &--large {
-    padding: $button-padding-y-large $button-padding-x-large;
-    font-size: $button-font-size-large;
-    border-radius: 4px;
-  }
-  &--small {
-    padding: $button-padding-y-small $button-padding-x-small;
-    font-size: $button-font-size-small;
-    border-radius: 3px;
-  }
-
+  // --- Type Variations ---
   &--primary {
     @include button-variant($primary-color);
   }
-
-  // --- Other Variants ---
   &--success {
     @include button-variant($success-color);
   }
-
-  &--danger {
-    @include button-variant($danger-color);
-  }
-
   &--warning {
     @include button-variant($warning-color);
   }
-
+  &--danger {
+    @include button-variant($danger-color);
+  }
   &--info {
     @include button-variant($info-color);
   }
 
+  // --- Size Variations ---
+  &--large {
+    padding: var(--pilot-button-padding-y-large) var(--pilot-button-padding-x-large);
+    font-size: var(--pilot-font-size-medium);
+  }
+  &--small {
+    padding: var(--pilot-button-padding-y-small) var(--pilot-button-padding-x-small);
+    font-size: var(--pilot-font-size-extra-small);
+  }
+
+  // --- Plain, Round, Circle Variations ---
   &.is-plain {
-    &.pilot-button--default {
-      @include button-plain-variant($text-color-primary);
+    &:hover,
+    &:focus {
+      background: var(--pilot-color-white);
+      border-color: var(--pilot-color-primary);
+      color: var(--pilot-color-primary);
     }
-    &.pilot-button--primary {
-      @include button-plain-variant($primary-color);
-    }
-    &.pilot-button--success {
-      @include button-plain-variant($success-color);
-    }
-    &.pilot-button--info {
-      @include button-plain-variant($info-color);
-    }
-    &.pilot-button--warning {
-      @include button-plain-variant($warning-color);
-    }
-    &.pilot-button--danger {
-      @include button-plain-variant($danger-color);
+    &:active {
+      background: var(--pilot-color-white);
+      border-color: color.scale($primary-color, $lightness: -10%);
+      color: color.scale($primary-color, $lightness: -10%);
+      outline: none;
     }
   }
+
   &.is-round {
-    border-radius: 20px;
+    border-radius: var(--pilot-button-border-radius-round);
   }
+
+  &.is-circle {
+    border-radius: 50%;
+    padding: var(--pilot-button-padding-y-default);
+  }
+
+  // --- Disabled State ---
   &.is-disabled {
-    cursor: not-allowed;
-    opacity: 0.6;
+    &,
+    &:hover,
+    &:focus {
+      color: var(--pilot-text-color-placeholder);
+      cursor: not-allowed;
+      background-image: none;
+      background-color: var(--pilot-color-white);
+      border-color: var(--pilot-border-color-light);
+    }
   }
 }
 </style>
