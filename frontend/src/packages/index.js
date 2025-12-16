@@ -7,6 +7,8 @@ import PilotTextarea from './Textarea';
 import PilotSelect from './Select';
 import PilotRadio from './Radio';
 import PilotRadioGroup from './RadioGroup';
+import Row from './Row';
+import Col from './Col';
 
 const components = [
   PilotButton,
@@ -18,6 +20,8 @@ const components = [
   PilotSelect,
   PilotRadio,
   PilotRadioGroup,
+  Row,
+  Col,
 ];
 
 const install = (app) => {
@@ -40,4 +44,6 @@ export {
   PilotSelect,
   PilotRadio,
   PilotRadioGroup,
+  Row,
+  Col,
 };
