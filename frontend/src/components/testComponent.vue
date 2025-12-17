@@ -192,6 +192,47 @@
           </template>
         </pilot-modal>
       </div>
+      <div v-if="activeComponent === 'Loading'" class="demo-section">
+        <h2>加载 (Loading)</h2>
+        <div style="margin-bottom: 20px">
+          <label>控制加载状态：</label>
+          <pilot-switch v-model="isLoading"></pilot-switch>
+        </div>
+        <div class="loading-area" v-loading="isLoading" pilot-loading-text="正在努力加载中...">
+          <p>这个区域的加载动画会带有自定义文字。</p>
+        </div>
+
+        <br /><br />
+        <h3>表格加载 (Table Loading)</h3>
+        <div class="table-container" v-loading="isLoading">
+          <table>
+            <thead>
+              <tr>
+                <th>日期</th>
+                <th>姓名</th>
+                <th>地址</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2023-10-26</td>
+                <td>张三</td>
+                <td>北京市朝阳区望京 SOHO</td>
+              </tr>
+              <tr>
+                <td>2023-10-27</td>
+                <td>李四</td>
+                <td>上海市浦东新区陆家嘴</td>
+              </tr>
+              <tr>
+                <td>2023-10-28</td>
+                <td>王五</td>
+                <td>广东省深圳市南山区科技园</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </main>
   </div>
 </template>
@@ -215,6 +256,7 @@ export default {
         'Switch',
         'Tabs',
         'Drawer',
+        'Loading',
       ],
       activeComponent: 'Button',
       inputValue: '',
@@ -234,6 +276,7 @@ export default {
       drawerWithConfirmVisible: false,
       confirmModalVisible: false, // 控制确认模态框的显示
       closeDrawerCallback: null, // 存储 before-close 的 done 回调
+      isLoading: false, // 为 Loading 指令添加状态
     };
   },
   methods: {
@@ -333,5 +376,34 @@ export default {
 .pilot-select {
   margin-right: 10px;
   margin-bottom: 10px;
+}
+.loading-area {
+  border: 1px solid #ebeef5;
+  padding: 20px;
+  border-radius: 4px;
+  min-height: 150px; /* 给一个最小高度以方便查看效果 */
+  width: 100%;
+}
+
+.table-container {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th,
+td {
+  border: 1px solid #ebeef5;
+  padding: 12px 15px;
+  text-align: left;
+}
+
+thead {
+  background-color: #f5f7fa;
+  color: #909399;
 }
 </style>
