@@ -138,27 +138,9 @@
 </template>
 
 <script>
-import PilotButton from '../packages/Button/button.vue';
-import PilotAlert from '../packages/Alert/alert.vue';
-import PilotCard from '../packages/Card/card.vue';
-import PilotInput from '../packages/Input/input.vue';
-import PilotTextarea from '../packages/Textarea/textarea.vue';
-import PilotRadio from '../packages/Radio/radio.vue';
-import PilotRadioGroup from '../packages/RadioGroup/radio-group.vue';
-import PilotSelect from '../packages/Select/select.vue';
-
 export default {
-  name: 'HelloWorld',
-  components: {
-    PilotButton,
-    PilotAlert,
-    PilotCard,
-    PilotInput,
-    PilotTextarea,
-    PilotRadio,
-    PilotRadioGroup,
-    PilotSelect,
-  },
+  name: 'testComponent',
+  components: {},
   data() {
     return {
       componentNames: [
