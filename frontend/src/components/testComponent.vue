@@ -133,6 +133,26 @@
         <pilot-button @click="showMessage('warning')">警告</pilot-button>
         <pilot-button @click="showMessage('danger')">错误</pilot-button>
       </div>
+      <div v-if="activeComponent === 'Switch'" class="demo-section">
+        <h2>Switch (开关)</h2>
+        <pilot-switch v-model="switchValue"></pilot-switch>
+        <br /><br />
+        <pilot-switch v-model="switchValue" disabled></pilot-switch>
+        <br /><br />
+        <pilot-switch
+          v-model="switchValue"
+          active-color="#13ce66"
+          inactive-color="#ff4949"
+        ></pilot-switch>
+      </div>
+      <div v-if="activeComponent === 'Tabs'" class="demo-section">
+        <h2>Tabs (标签页)</h2>
+        <pilot-tabs v-model="activeTabName">
+          <pilot-tab-pane label="Tab 1" name="first"> Content of Tab 1 </pilot-tab-pane>
+          <pilot-tab-pane label="Tab 2" name="second"> Content of Tab 2 </pilot-tab-pane>
+          <pilot-tab-pane label="Tab 3" name="third"> Content of Tab 3 </pilot-tab-pane>
+        </pilot-tabs>
+      </div>
     </main>
   </div>
 </template>
@@ -153,6 +173,8 @@ export default {
         'Radio',
         'Select',
         'Modal',
+        'Switch',
+        'Tabs',
       ],
       activeComponent: 'Button',
       inputValue: '',
@@ -165,6 +187,8 @@ export default {
         { label: '选项三', value: 'option3' },
       ],
       modalVisible: false,
+      switchValue: true,
+      activeTabName: 'first', // 添加 activeTabName 属性
     };
   },
   methods: {

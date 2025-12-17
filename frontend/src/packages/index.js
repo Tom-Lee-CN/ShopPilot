@@ -10,6 +10,9 @@ import PilotRadioGroup from './RadioGroup';
 import Row from './Row';
 import Col from './Col';
 import Modal from './Modal';
+import PilotSwitch from './Switch';
+// 从 './Tabs' 中同时导入默认的 PilotTabs 和命名的 PilotTabPane
+import PilotTabs, { PilotTabPane } from './Tabs';
 
 const components = [
   PilotButton,
@@ -24,6 +27,9 @@ const components = [
   Row,
   Col,
   Modal,
+  PilotSwitch,
+  PilotTabs,
+  PilotTabPane,
 ];
 
 const install = (app) => {
@@ -49,4 +55,7 @@ export {
   Row,
   Col,
   Modal,
+  PilotSwitch,
+  PilotTabs,
+  PilotTabPane,
 };

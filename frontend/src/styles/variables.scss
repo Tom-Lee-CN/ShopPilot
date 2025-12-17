@@ -225,6 +225,32 @@ $message-success-color: $success-color;
 $message-warning-color: $warning-color;
 $message-error-color: $danger-color;
 
+// --------------------------------------------------------------------------
+// Switch Component
+// --------------------------------------------------------------------------
+$switch-height: 20px !default;
+$switch-width: 40px !default;
+$switch-on-color: $primary-color !default;
+$switch-off-color: $border-color !default;
+$switch-disabled-opacity: 0.6 !default;
+$switch-border-radius: 10px !default;
+$switch-action-size: 16px !default;
+$switch-action-offset: 1px !default;
+$switch-action-bg: $color-white !default;
+
+// --------------------------------------------------------------------------
+// Tabs Component
+// --------------------------------------------------------------------------
+$tabs-header-height: 40px !default;
+$tabs-header-padding: 0 20px !default;
+$tabs-header-bg-color: $fill-color-light !default;
+$tabs-border-color: $border-color-light !default;
+$tabs-font-size: $font-size-base !default;
+$tabs-text-color: $text-color-regular !default;
+$tabs-active-text-color: $primary-color !default;
+$tabs-active-bar-height: 2px !default;
+$tabs-hover-text-color: $primary-color !default;
+
 // ==========================================================================
 // CSS 自定义属性 (用于运行时样式)
 // ==========================================================================
@@ -397,4 +423,26 @@ $message-error-color: $danger-color;
   --pilot-message-icon-margin-right: #{$message-icon-margin-right};
   --pilot-message-close-size: #{$message-close-size};
   --pilot-message-close-margin-left: #{$message-close-margin-left};
+
+  // Switch Component
+  --pilot-switch-height: #{$switch-height};
+  --pilot-switch-width: #{$switch-width};
+  --pilot-switch-on-color: #{$switch-on-color};
+  --pilot-switch-off-color: #{$switch-off-color};
+  --pilot-switch-disabled-opacity: #{$switch-disabled-opacity};
+  --pilot-switch-border-radius: #{$switch-border-radius};
+  --pilot-switch-action-size: #{$switch-action-size};
+  --pilot-switch-action-offset: #{$switch-action-offset};
+  --pilot-switch-action-bg: #{$switch-action-bg};
+
+  // Tabs Component
+  --pilot-tabs-header-height: #{$tabs-header-height};
+  --pilot-tabs-header-padding: #{$tabs-header-padding};
+  --pilot-tabs-header-bg-color: #{$tabs-header-bg-color};
+  --pilot-tabs-border-color: #{$tabs-border-color};
+  --pilot-tabs-font-size: #{$tabs-font-size};
+  --pilot-tabs-text-color: #{$tabs-text-color};
+  --pilot-tabs-active-text-color: #{$tabs-active-text-color};
+  --pilot-tabs-active-bar-height: #{$tabs-active-bar-height};
+  --pilot-tabs-hover-text-color: #{$tabs-hover-text-color};
 }
