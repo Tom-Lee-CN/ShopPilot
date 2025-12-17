@@ -193,7 +193,7 @@ $textarea-count-font-size: $font-size-extra-small !default;
 // --------------------------------------------------------------------------
 // Modal Component
 // --------------------------------------------------------------------------
-$modal-z-index: 1000 !default;
+$modal-z-index: 2010  !default;
 $modal-fade-duration: 0.3s !default;
 $modal-title-font-size: $font-size-large !default;
 $modal-content-font-size: $font-size-base !default;
@@ -250,6 +250,18 @@ $tabs-text-color: $text-color-regular !default;
 $tabs-active-text-color: $primary-color !default;
 $tabs-active-bar-height: 2px !default;
 $tabs-hover-text-color: $primary-color !default;
+
+// --------------------------------------------------------------------------
+// Drawer Component
+// --------------------------------------------------------------------------
+$drawer-z-index: 2000 !default;
+$drawer-bg-color: $color-white !default;
+$drawer-box-shadow: $box-shadow-dark !default;
+$drawer-header-padding: 20px !default;
+$drawer-body-padding: 20px !default;
+$drawer-title-font-size: $font-size-large !default;
+$drawer-close-font-size: 16px !default;
+$drawer-animation-duration: 0.3s !default;
 
 // ==========================================================================
 // CSS 自定义属性 (用于运行时样式)
@@ -445,4 +457,14 @@ $tabs-hover-text-color: $primary-color !default;
   --pilot-tabs-active-text-color: #{$tabs-active-text-color};
   --pilot-tabs-active-bar-height: #{$tabs-active-bar-height};
   --pilot-tabs-hover-text-color: #{$tabs-hover-text-color};
+
+  // Drawer Component
+  --pilot-drawer-z-index: #{$drawer-z-index};
+  --pilot-drawer-bg-color: #{$drawer-bg-color};
+  --pilot-drawer-box-shadow: #{$drawer-box-shadow};
+  --pilot-drawer-header-padding: #{$drawer-header-padding};
+  --pilot-drawer-body-padding: #{$drawer-body-padding};
+  --pilot-drawer-title-font-size: #{$drawer-title-font-size};
+  --pilot-drawer-close-font-size: #{$drawer-close-font-size};
+  --pilot-drawer-animation-duration: #{$drawer-animation-duration};
 }

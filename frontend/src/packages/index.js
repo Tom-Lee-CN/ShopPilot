@@ -13,6 +13,7 @@ import Modal from './Modal';
 import PilotSwitch from './Switch';
 // 从 './Tabs' 中同时导入默认的 PilotTabs 和命名的 PilotTabPane
 import PilotTabs, { PilotTabPane } from './Tabs';
+import PilotDrawer from './Drawer';
 
 const components = [
   PilotButton,
@@ -30,6 +31,7 @@ const components = [
   PilotSwitch,
   PilotTabs,
   PilotTabPane,
+  PilotDrawer,
 ];
 
 const install = (app) => {
@@ -58,4 +60,5 @@ export {
   PilotSwitch,
   PilotTabs,
   PilotTabPane,
+  PilotDrawer,
 };

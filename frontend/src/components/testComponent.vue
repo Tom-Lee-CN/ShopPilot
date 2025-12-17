@@ -153,6 +153,45 @@
           <pilot-tab-pane label="Tab 3" name="third"> Content of Tab 3 </pilot-tab-pane>
         </pilot-tabs>
       </div>
+      <div v-if="activeComponent === 'Drawer'" class="demo-section">
+        <h2>抽屉 (Drawer)</h2>
+        <pilot-button @click="openDrawer('rtl')">从右边打开</pilot-button>
+        <pilot-button @click="openDrawer('ltr')">从左边打开</pilot-button>
+        <pilot-button @click="openDrawer('ttb')">从上边打开</pilot-button>
+        <pilot-button @click="openDrawer('btt')">从下边打开</pilot-button>
+        <br /><br />
+        <pilot-button type="primary" @click="drawerWithConfirmVisible = true"
+          >打开带确认的抽屉</pilot-button
+        >
+
+        <pilot-drawer
+          v-model="drawerVisible"
+          :direction="drawerDirection"
+          title="我是标题"
+          size="30%"
+        >
+          <p>一些内容...</p>
+          <p>一些内容...</p>
+          <p>一些内容...</p>
+        </pilot-drawer>
+
+        <pilot-drawer
+          v-model="drawerWithConfirmVisible"
+          title="关闭前确认"
+          :before-close="handleDrawerClose"
+        >
+          <p>关闭这个抽屉需要确认</p>
+        </pilot-drawer>
+
+        <!-- 新增的确认模态框 -->
+        <pilot-modal v-model="confirmModalVisible" title="确认关闭">
+          <p>您确定要关闭抽屉吗？未保存的更改将会丢失。</p>
+          <template #footer>
+            <pilot-button @click="cancelCloseDrawer">取消</pilot-button>
+            <pilot-button type="primary" @click="confirmCloseDrawer">确认</pilot-button>
+          </template>
+        </pilot-modal>
+      </div>
     </main>
   </div>
 </template>
@@ -175,6 +214,7 @@ export default {
         'Modal',
         'Switch',
         'Tabs',
+        'Drawer',
       ],
       activeComponent: 'Button',
       inputValue: '',
@@ -189,6 +229,11 @@ export default {
       modalVisible: false,
       switchValue: true,
       activeTabName: 'first', // 添加 activeTabName 属性
+      drawerVisible: false,
+      drawerDirection: 'rtl',
+      drawerWithConfirmVisible: false,
+      confirmModalVisible: false, // 控制确认模态框的显示
+      closeDrawerCallback: null, // 存储 before-close 的 done 回调
     };
   },
   methods: {
@@ -198,6 +243,25 @@ export default {
         message: `这是一个 ${type} 123消息提示`,
         showClose: true,
       });
+    },
+    openDrawer(direction) {
+      this.drawerDirection = direction;
+      this.drawerVisible = true;
+    },
+    handleDrawerClose(done) {
+      this.confirmModalVisible = true;
+      this.closeDrawerCallback = done;
+    },
+    confirmCloseDrawer() {
+      if (this.closeDrawerCallback) {
+        this.closeDrawerCallback(); // 执行关闭抽屉的操作
+      }
+      this.confirmModalVisible = false;
+      this.closeDrawerCallback = null;
+    },
+    cancelCloseDrawer() {
+      this.confirmModalVisible = false;
+      this.closeDrawerCallback = null;
     },
   },
 };
