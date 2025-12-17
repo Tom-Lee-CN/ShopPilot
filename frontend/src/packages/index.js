@@ -15,6 +15,7 @@ import PilotSwitch from './Switch';
 import PilotTabs, { PilotTabPane } from './Tabs';
 import PilotDrawer from './Drawer';
 import PilotLoading from './Loading'; // 导入 Loading 插件
+import MessageBox from './MessageBox'; // 1. 导入 MessageBox
 
 const components = [
   PilotButton,
@@ -42,6 +43,9 @@ const install = (app) => {
 
   // 单独注册 Loading 指令插件
   app.use(PilotLoading);
+
+  // 2. 将 MessageBox 挂载到全局
+  app.config.globalProperties.$messageBox = MessageBox;
 };
 
 export default {

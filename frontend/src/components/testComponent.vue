@@ -233,6 +233,13 @@
           </table>
         </div>
       </div>
+      <div v-if="activeComponent === 'MessageBox'" class="demo-section">
+        <h2>消息弹框 (MessageBox)</h2>
+        <p>通过函数式调用打开，返回一个 Promise。</p>
+        <br />
+        <pilot-button @click="openConfirmBox">打开确认框</pilot-button>
+        <pilot-button @click="openAlertBox">打开提示框</pilot-button>
+      </div>
     </main>
   </div>
 </template>
@@ -240,7 +247,6 @@
 <script>
 export default {
   name: 'testComponent',
-  components: {},
   data() {
     return {
       componentNames: [
@@ -257,6 +263,7 @@ export default {
         'Tabs',
         'Drawer',
         'Loading',
+        'MessageBox',
       ],
       activeComponent: 'Button',
       inputValue: '',
@@ -305,6 +312,29 @@ export default {
     cancelCloseDrawer() {
       this.confirmModalVisible = false;
       this.closeDrawerCallback = null;
+    },
+    async openConfirmBox() {
+      try {
+        await this.$messageBox({
+          title: '确认操作',
+          message: '您确定要执行此操作吗？',
+          showCancelButton: true,
+        });
+        this.$message({ type: 'success', message: '用户点击了确认' });
+      } catch (action) {
+        this.$message({ type: 'info', message: `操作已取消 (${action})` });
+      }
+    },
+    async openAlertBox() {
+      try {
+        await this.$messageBox({
+          title: '提示',
+          message: '这是一个提示信息。',
+        });
+        this.$message({ type: 'success', message: '用户点击了确定' });
+      } catch (action) {
+        this.$message({ type: 'info', message: `弹窗已关闭 (${action})` });
+      }
     },
   },
 };
