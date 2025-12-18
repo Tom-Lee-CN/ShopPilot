@@ -23,6 +23,10 @@ import PilotScrollbar from './Scrollbar';
 import PilotInfiniteScroll from './InfiniteScroll'; // 1. 导入 InfiniteScroll 插件
 import PilotSteps from './Steps';
 import PilotStep from './Step';
+import PilotMenu from './Menu';
+import PilotMenuItem from './MenuItem';
+import PilotSubmenu from './SubMenu';
+import PilotBacktop from './Backtop';
 
 const components = [
   PilotButton,
@@ -54,6 +58,10 @@ const components = [
   PilotInfiniteScroll,
   PilotSteps,
   PilotStep,
+  PilotMenu,
+  PilotMenuItem,
+  PilotSubmenu,
+  PilotBacktop,
 ];
 
 const install = (app) => {
@@ -102,4 +110,8 @@ export {
   PilotInfiniteScroll,
   PilotSteps,
   PilotStep,
+  PilotMenu,
+  PilotMenuItem,
+  PilotSubmenu,
+  PilotBacktop,
 };
