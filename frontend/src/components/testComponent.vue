@@ -14,7 +14,6 @@
         </li>
       </ul>
     </aside>
-
     <main class="content">
       <div v-if="activeComponent === 'Button'" class="demo-section">
         <h2>按钮 (Button)</h2>
@@ -379,6 +378,29 @@
             >
           </pilot-container>
         </pilot-container>
+      </div>
+      <div v-if="activeComponent === 'Button'" class="demo-section">
+        <h2>Link 链接</h2>
+        <div style="display: flex; gap: 16px; margin-bottom: 20px">
+          <pilot-link href="https://www.google.com" target="_blank">默认链接</pilot-link>
+          <pilot-link type="primary">主要链接</pilot-link>
+          <pilot-link type="success">成功链接</pilot-link>
+          <pilot-link type="warning">警告链接</pilot-link>
+          <pilot-link type="danger">危险链接</pilot-link>
+          <pilot-link type="info">信息链接</pilot-link>
+        </div>
+        <div style="display: flex; gap: 16px; margin-bottom: 20px">
+          <pilot-link disabled>禁用链接</pilot-link>
+          <pilot-link type="primary" disabled>主要链接(禁用)</pilot-link>
+        </div>
+        <div style="display: flex; gap: 16px; margin-bottom: 20px">
+          <pilot-link :underline="false">无下划线</pilot-link>
+          <pilot-link type="primary" :underline="false">主要链接(无下划线)</pilot-link>
+        </div>
+        <div style="display: flex; gap: 16px; margin-bottom: 20px">
+          <pilot-link icon="el-icon-edit">编辑</pilot-link>
+          <pilot-link>查看<i class="el-icon-view el-icon--right"></i> </pilot-link>
+        </div>
       </div>
     </main>
   </div>

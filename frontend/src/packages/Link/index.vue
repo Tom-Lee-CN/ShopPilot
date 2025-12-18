@@ -55,6 +55,8 @@ export default {
 </script>
 
 <style lang="scss">
+@use '../../styles/variables.scss';
+@use 'sass:color';
 .pilot-link {
   display: inline-flex;
   flex-direction: row;
@@ -68,7 +70,6 @@ export default {
   padding: 0;
   font-size: 14px;
   font-weight: 500;
-
   &--inner {
     margin-left: 4px;
   }
@@ -88,62 +89,62 @@ export default {
   }
 
   &--default {
-    color: #606266;
+    color: $text-color-regular;
     &:hover {
-      color: #409eff;
+      color: $primary-color;
     }
     &.is-disabled {
-      color: #c0c4cc;
+      color: $text-color-placeholder;
     }
   }
 
   &--primary {
-    color: #409eff;
+    color: $primary-color;
     &:hover {
-      color: #66b1ff;
+      color: color.mix($color-white, $primary-color, 20%);
     }
     &.is-disabled {
-      color: #a0cfff;
+      color: color.mix($color-white, $primary-color, 50%);
     }
   }
 
   &--success {
-    color: #67c23a;
+    color: $success-color;
     &:hover {
-      color: #85ce61;
+      color: color.mix($color-white, $success-color, 20%);
     }
     &.is-disabled {
-      color: #b3e19d;
+      color: color.mix($color-white, $success-color, 50%);
     }
   }
 
   &--warning {
-    color: #e6a23c;
+    color: $warning-color;
     &:hover {
-      color: #ebb563;
+      color: color.mix($color-white, $warning-color, 20%);
     }
     &.is-disabled {
-      color: #f3d19e;
+      color: color.mix($color-white, $warning-color, 50%);
     }
   }
 
   &--info {
-    color: #909399;
+    color: $info-color;
     &:hover {
-      color: #a6a9ad;
+      color: color.mix($color-white, $info-color, 20%);
     }
     &.is-disabled {
-      color: #c8c9cc;
+      color: color.mix($color-white, $info-color, 50%);
     }
   }
 
   &--danger {
-    color: #f56c6c;
+    color: $danger-color;
     &:hover {
-      color: #f78989;
+      color: color.mix($color-white, $danger-color, 20%);
     }
     &.is-disabled {
-      color: #fab6b6;
+      color: color.mix($color-white, $danger-color, 50%);
     }
   }
 }

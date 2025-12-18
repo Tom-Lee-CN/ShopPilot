@@ -16,8 +16,8 @@ import PilotTabs, { PilotTabPane } from './Tabs';
 import PilotDrawer from './Drawer';
 import PilotLoading from './Loading'; // 导入 Loading 插件
 import MessageBox from './MessageBox'; // 1. 导入 MessageBox
-
 import { PilotContainer, PilotHeader, PilotFooter, PilotAside, PilotMain } from './Container';
+import PilotLink from './Link';
 const components = [
   PilotButton,
   PilotIcon,
@@ -41,6 +41,7 @@ const components = [
   PilotFooter,
   PilotAside,
   PilotMain,
+  PilotLink,
 ];
 
 const install = (app) => {
@@ -76,10 +77,10 @@ export {
   PilotTabs,
   PilotTabPane,
   PilotDrawer,
-  // 添加布局组件
   PilotContainer,
   PilotHeader,
   PilotFooter,
   PilotAside,
   PilotMain,
+  PilotLink,
 };
