@@ -240,6 +240,146 @@
         <pilot-button @click="openConfirmBox">打开确认框</pilot-button>
         <pilot-button @click="openAlertBox">打开提示框</pilot-button>
       </div>
+      <div v-if="activeComponent === 'Container'" class="demo-section">
+        <h2>布局容器 (Container)</h2>
+
+        <h3>常见布局 1: Header, Main, Footer</h3>
+        <pilot-container style="height: 200px; border: 1px solid #eee; margin-bottom: 20px">
+          <pilot-header style="background-color: #b3c0d1; text-align: center; line-height: 60px"
+            >Header</pilot-header
+          >
+          <pilot-main style="background-color: #e9eef3; text-align: center; line-height: 80px"
+            >Main</pilot-main
+          >
+          <pilot-footer style="background-color: #b3c0d1; text-align: center; line-height: 60px"
+            >Footer</pilot-footer
+          >
+        </pilot-container>
+
+        <h3>常见布局 2: Header, Aside, Main</h3>
+        <pilot-container style="height: 300px; border: 1px solid #eee; margin-bottom: 20px">
+          <pilot-header style="background-color: #b3c0d1; text-align: center; line-height: 60px"
+            >Header</pilot-header
+          >
+          <pilot-container>
+            <pilot-aside
+              width="200px"
+              style="background-color: #d3dce6; text-align: center; line-height: 240px"
+              >Aside</pilot-aside
+            >
+            <pilot-main style="background-color: #e9eef3; text-align: center; line-height: 240px"
+              >Main</pilot-main
+            >
+          </pilot-container>
+        </pilot-container>
+
+        <h3>常见布局 3: Header, Aside, Main, Footer</h3>
+        <pilot-container style="height: 300px; border: 1px solid #eee; margin-bottom: 20px">
+          <pilot-header style="background-color: #b3c0d1; text-align: center; line-height: 60px"
+            >Header</pilot-header
+          >
+          <pilot-container>
+            <pilot-aside
+              width="200px"
+              style="background-color: #d3dce6; text-align: center; line-height: 180px"
+              >Aside</pilot-aside
+            >
+            <pilot-main style="background-color: #e9eef3; text-align: center; line-height: 180px"
+              >Main</pilot-main
+            >
+          </pilot-container>
+          <pilot-footer style="background-color: #b3c0d1; text-align: center; line-height: 60px"
+            >Footer</pilot-footer
+          >
+        </pilot-container>
+
+        <h3>常见布局 4: Aside, Main</h3>
+        <pilot-container style="height: 200px; border: 1px solid #eee; margin-bottom: 20px">
+          <pilot-aside
+            width="200px"
+            style="background-color: #d3dce6; text-align: center; line-height: 200px"
+            >Aside</pilot-aside
+          >
+          <pilot-main style="background-color: #e9eef3; text-align: center; line-height: 200px"
+            >Main</pilot-main
+          >
+        </pilot-container>
+
+        <h3>常见布局 5: Aside, Header, Main</h3>
+        <pilot-container style="height: 260px; border: 1px solid #eee; margin-bottom: 20px">
+          <pilot-aside
+            width="200px"
+            style="background-color: #d3dce6; text-align: center; line-height: 260px"
+            >Aside</pilot-aside
+          >
+          <pilot-container>
+            <pilot-header style="background-color: #b3c0d1; text-align: center; line-height: 60px"
+              >Header</pilot-header
+            >
+            <pilot-main style="background-color: #e9eef3; text-align: center; line-height: 200px"
+              >Main</pilot-main
+            >
+          </pilot-container>
+        </pilot-container>
+
+        <h3>常见布局 6: Aside, Header, Main, Footer</h3>
+        <pilot-container style="height: 320px; border: 1px solid #eee; margin-bottom: 20px">
+          <pilot-aside
+            width="200px"
+            style="background-color: #d3dce6; text-align: center; line-height: 320px"
+            >Aside</pilot-aside
+          >
+          <pilot-container>
+            <pilot-header style="background-color: #b3c0d1; text-align: center; line-height: 60px"
+              >Header</pilot-header
+            >
+            <pilot-main style="background-color: #e9eef3; text-align: center; line-height: 200px"
+              >Main</pilot-main
+            >
+            <pilot-footer style="background-color: #b3c0d1; text-align: center; line-height: 60px"
+              >Footer</pilot-footer
+            >
+          </pilot-container>
+        </pilot-container>
+
+        <h3 style="margin-top: 40px">常见布局 7: Header, Main, Aside (右)</h3>
+        <pilot-container style="height: 300px; border: 1px solid #eee; margin-bottom: 20px">
+          <pilot-header style="background-color: #b3c0d1; text-align: center; line-height: 60px"
+            >Header</pilot-header
+          >
+          <pilot-container>
+            <pilot-aside
+              width="200px"
+              style="background-color: #d3dce6; text-align: center; line-height: 240px"
+              >Aside</pilot-aside
+            >
+            <pilot-main style="background-color: #e9eef3; text-align: center; line-height: 240px"
+              >Main</pilot-main
+            >
+          </pilot-container>
+        </pilot-container>
+        <h3 style="margin-top: 40px">常见布局 8: Header, Main, 左右 Asides</h3>
+        <pilot-container style="height: 300px; border: 1px solid #eee; margin-bottom: 20px">
+          <pilot-header style="background-color: #b3c0d1; text-align: center; line-height: 60px"
+            >Header</pilot-header
+          >
+          <pilot-container>
+            <pilot-aside
+              width="200px"
+              style="background-color: #d3dce6; text-align: center; line-height: 240px"
+              >Aside Left</pilot-aside
+            >
+            <pilot-main style="background-color: #e9eef3; text-align: center; line-height: 240px"
+              >Main</pilot-main
+            >
+            <pilot-aside
+              width="200px"
+              style="background-color: #d3dce6; text-align: center; line-height: 240px"
+              >Aside Right</pilot-aside
+            >
+          </pilot-container>
+        </pilot-container>
+      </div>
     </main>
   </div>
 </template>
@@ -264,6 +404,7 @@ export default {
         'Drawer',
         'Loading',
         'MessageBox',
+        'Container',
       ],
       activeComponent: 'Button',
       inputValue: '',
