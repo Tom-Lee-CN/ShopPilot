@@ -21,6 +21,8 @@ import PilotBreadcrumb from './Breadcrumb';
 import PilotBreadcrumbItem from './BreadcrumbItem';
 import PilotScrollbar from './Scrollbar';
 import PilotInfiniteScroll from './InfiniteScroll'; // 1. 导入 InfiniteScroll 插件
+import PilotSteps from './Steps';
+import PilotStep from './Step';
 
 const components = [
   PilotButton,
@@ -50,6 +52,8 @@ const components = [
   PilotBreadcrumbItem,
   PilotScrollbar,
   PilotInfiniteScroll,
+  PilotSteps,
+  PilotStep,
 ];
 
 const install = (app) => {
@@ -96,4 +100,6 @@ export {
   PilotBreadcrumbItem,
   PilotScrollbar,
   PilotInfiniteScroll,
+  PilotSteps,
+  PilotStep,
 };

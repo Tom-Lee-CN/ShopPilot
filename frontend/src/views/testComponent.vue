@@ -1,96 +1,74 @@
 <template>
-  <div class="test-page-container">
-    <h1>Infinite Scroll Test Page</h1>
-    <div class="infinite-scroll-test-container">
-      <h3>Test Case: Inside a Pilot-Scrollbar</h3>
-      <pilot-scrollbar height="400px" class="scrollbar-container">
-        <ul
-          v-infinite-scroll="{
-            handler: loadMore,
-            disabled: noMore,
-            delay: 500,
-            distance: 10,
-          }"
-          class="infinite-list"
-        >
-          <li v-for="i in infiniteScrollCount" :key="i" class="infinite-list-item">{{ i }}</li>
-        </ul>
-        <p v-if="loading" class="loading-text">Loading...</p>
-        <p v-if="noMore" class="no-more-text">No more items</p>
-      </pilot-scrollbar>
+  <div class="test-container">
+    <h2>Steps 步骤条</h2>
+    <p>引导用户按照流程完成任务的导航条。</p>
+
+    <div class="demo-block">
+      <h3>基础用法</h3>
+      <p>简单的步骤条。</p>
+      <pilot-steps :active="active" finish-status="success">
+        <pilot-step title="步骤 1"></pilot-step>
+        <pilot-step title="步骤 2"></pilot-step>
+        <pilot-step title="步骤 3"></pilot-step>
+      </pilot-steps>
     </div>
+
+    <div class="demo-block">
+      <h3>带描述的步骤条</h3>
+      <p>每个步骤可以有更详细的描述。</p>
+      <pilot-steps :active="active" finish-status="success">
+        <pilot-step title="已完成" description="这是一段很长很长很长的描述性文字"></pilot-step>
+        <pilot-step title="进行中" description="这是一段很长很长很长的描述性文字"></pilot-step>
+        <pilot-step title="待处理" description="这是一段很长很长很长的描述性文字"></pilot-step>
+      </pilot-steps>
+    </div>
+
+    <div class="demo-block">
+      <h3>简洁风格</h3>
+      <p>设置 <code>simple</code> 属性可以应用简洁风格，该风格下的步骤条不显示描述。</p>
+      <pilot-steps :active="active" finish-status="success" simple>
+        <pilot-step title="步骤 1"></pilot-step>
+        <pilot-step title="步骤 2"></pilot-step>
+        <pilot-step title="步骤 3"></pilot-step>
+      </pilot-steps>
+    </div>
+
+    <pilot-button @click="nextStep" style="margin-top: 20px">下一步</pilot-button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'TestComponentView',
+  name: 'TestComponent',
   data() {
     return {
-      infiniteScrollCount: 20,
-      loading: false,
+      active: 0,
     };
   },
-  computed: {
-    noMore() {
-      return this.infiniteScrollCount >= 80; // Stop loading when we have 80 items
-    },
-  },
   methods: {
-    loadMore() {
-      console.log('Load more triggered!'); // Add a log to check if handler is called
-      this.loading = true;
-      setTimeout(() => {
-        this.infiniteScrollCount += 10; // Add 10 more items
-        this.loading = false;
-      }, 1500); // Simulate a network request
+    nextStep() {
+      if (this.active++ > 2) {
+        this.active = 0;
+      }
     },
   },
 };
 </script>
 
 <style scoped>
-.test-page-container {
+.test-container {
   padding: 20px;
-  font-family: sans-serif;
 }
-
-.infinite-scroll-test-container {
-  width: 60%;
-  margin: 20px auto;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+.demo-block {
+  margin-bottom: 40px;
 }
-
-.scrollbar-container {
-  border: 1px solid #e4e7ed;
-  border-radius: 4px;
+h2,
+h3 {
+  margin-bottom: 10px;
 }
-
-.infinite-list {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.infinite-list-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50px;
-  background: #f0f9eb;
-  margin: 10px;
-  color: #67c23a;
-  border-radius: 4px;
-}
-
-.loading-text,
-.no-more-text {
-  text-align: center;
-  padding: 15px;
-  color: #909399;
+p {
+  color: #5e6d82;
   font-size: 14px;
+  margin-bottom: 10px;
 }
 </style>
