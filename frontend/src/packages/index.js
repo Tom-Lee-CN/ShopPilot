@@ -18,6 +18,9 @@ import PilotLoading from './Loading'; // 导入 Loading 插件
 import MessageBox from './MessageBox'; // 1. 导入 MessageBox
 import { PilotContainer, PilotHeader, PilotFooter, PilotAside, PilotMain } from './Container';
 import PilotLink from './Link';
+import PilotBreadcrumb from './Breadcrumb';
+import PilotBreadcrumbItem from './BreadcrumbItem';
+import PilotScrollbar from './Scrollbar';
 
 const components = [
   PilotButton,
@@ -43,6 +46,9 @@ const components = [
   PilotAside,
   PilotMain,
   PilotLink,
+  PilotBreadcrumb,
+  PilotBreadcrumbItem,
+  PilotScrollbar,
 ];
 
 const install = (app) => {
@@ -83,4 +89,7 @@ export {
   PilotAside,
   PilotMain,
   PilotLink,
+  PilotBreadcrumb,
+  PilotBreadcrumbItem,
+  PilotScrollbar,
 };
