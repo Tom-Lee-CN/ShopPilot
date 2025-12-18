@@ -11,7 +11,6 @@ import Row from './Row';
 import Col from './Col';
 import Modal from './Modal';
 import PilotSwitch from './Switch';
-// 从 './Tabs' 中同时导入默认的 PilotTabs 和命名的 PilotTabPane
 import PilotTabs, { PilotTabPane } from './Tabs';
 import PilotDrawer from './Drawer';
 import PilotLoading from './Loading'; // 导入 Loading 插件
@@ -21,6 +20,7 @@ import PilotLink from './Link';
 import PilotBreadcrumb from './Breadcrumb';
 import PilotBreadcrumbItem from './BreadcrumbItem';
 import PilotScrollbar from './Scrollbar';
+import PilotInfiniteScroll from './InfiniteScroll'; // 1. 导入 InfiniteScroll 插件
 
 const components = [
   PilotButton,
@@ -49,6 +49,7 @@ const components = [
   PilotBreadcrumb,
   PilotBreadcrumbItem,
   PilotScrollbar,
+  PilotInfiniteScroll,
 ];
 
 const install = (app) => {
@@ -58,6 +59,8 @@ const install = (app) => {
 
   // 单独注册 Loading 指令插件
   app.use(PilotLoading);
+  // 3. 注册 InfiniteScroll 指令
+  app.use(PilotInfiniteScroll);
   // 2. 将 MessageBox 挂载到全局
   app.config.globalProperties.$messageBox = MessageBox;
 };
@@ -92,4 +95,5 @@ export {
   PilotBreadcrumb,
   PilotBreadcrumbItem,
   PilotScrollbar,
+  PilotInfiniteScroll,
 };

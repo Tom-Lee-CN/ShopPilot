@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import testComponent from '../components/testComponent.vue';
 import Login from '../views/loginViews/loginView.vue';
+import test from '../views/testComponent.vue';
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: testComponent,
+    component: test,
     meta: { title: '首页' }, // 面包屑将显示 "首页"
   },
   {

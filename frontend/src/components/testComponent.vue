@@ -1,11 +1,23 @@
 <template>
+  <div class="infinite-scroll-test-container">
+    <h3>Infinite Scroll Test</h3>
+    <pilot-scrollbar height="400px">
+      <ul
+        v-infinite-scroll="{
+          handler: loadMore,
+          disabled: noMore,
+          delay: 500,
+          distance: 10,
+        }"
+        class="infinite-list"
+      >
+        <li v-for="i in infiniteScrollCount" :key="i" class="infinite-list-item">{{ i }}</li>
+      </ul>
+      <p v-if="loading" class="loading-text">Loading...</p>
+      <p v-if="noMore" class="no-more-text">No more</p>
+    </pilot-scrollbar>
+  </div>
   <pilot-scrollbar>
-    <div class="component-section">
-      <h2>滚动条 (Scrollbar)</h2>
-      <pilot-scrollbar height="400">
-        <p v-for="item in 20" :key="item" class="scrollbar-demo-item">{{ item }}</p>
-      </pilot-scrollbar>
-    </div>
     <div class="demo-page">
       <aside class="sidebar">
         <h2>Components</h2>
@@ -489,6 +501,12 @@ export default {
       isLoading: false, // 为 Loading 指令添加状态
     };
   },
+  computed: {
+    // ... your other computed properties ...
+    noMore() {
+      return this.infiniteScrollCount >= 60; // Stop loading when we have 60 items
+    },
+  },
   methods: {
     showMessage(type) {
       this.$message({
@@ -555,6 +573,13 @@ export default {
         duration: 0,
         type: 'info',
       });
+    },
+    loadMore() {
+      this.loading = true;
+      setTimeout(() => {
+        this.infiniteScrollCount += 10; // Add 10 more items
+        this.loading = false;
+      }, 1000); // Simulate a network request
     },
   },
 };
@@ -667,5 +692,35 @@ thead {
   border-radius: 4px;
   background: #ecf5ff;
   color: #409eff;
+}
+
+.infinite-scroll-test-container {
+  width: 50%;
+  margin: 20px auto;
+  border: 1px solid #eee;
+  padding: 20px;
+}
+
+.infinite-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.infinite-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  background: #e8f3fe;
+  margin: 10px;
+  color: #7dbcfc;
+}
+
+.loading-text,
+.no-more-text {
+  text-align: center;
+  padding: 10px;
+  color: #999;
 }
 </style>

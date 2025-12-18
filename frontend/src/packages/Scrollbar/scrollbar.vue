@@ -130,23 +130,26 @@ export default {
   },
   computed: {
     mergedWrapStyle() {
-      const style = {};
+      const style = { ...this.wrapStyle }; // Start with user-provided styles
+
+      // Correctly handle height and maxHeight props
       if (this.height) {
-        style.height = `${this.height}px`;
+        style.height = typeof this.height === 'number' ? `${this.height}px` : this.height;
       }
       if (this.maxHeight) {
-        style.maxHeight = `${this.maxHeight}px`;
+        style.maxHeight =
+          typeof this.maxHeight === 'number' ? `${this.maxHeight}px` : this.maxHeight;
       }
+
       if (this.native) {
-        return [this.wrapStyle, style];
+        return style;
       }
 
       const gutter = `-${getScrollbarWidth()}px`;
       style.marginRight = gutter;
       style.marginBottom = gutter;
 
-      // this.wrapStyle here correctly refers to the prop
-      return [this.wrapStyle, style];
+      return style;
     },
   },
   methods: {
