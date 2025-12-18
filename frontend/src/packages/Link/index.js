@@ -1,4 +1,4 @@
-import PilotLink from './index.vue';
+import PilotLink from './link.vue';
 
 // PilotLink.install = (app) => {
 //   app.component(PilotLink.name, PilotLink);

@@ -5,6 +5,7 @@ import router from './router';
 // 组件库
 import Pilot from './packages';
 import Message from './packages/Message/message.js';
+import Notification from './packages/Notification/index.js';
 const pinia = createPinia();
 const app = createApp(App);
 
@@ -12,6 +13,7 @@ const app = createApp(App);
 import './styles/index.scss';
 // 全局消息提示
 app.config.globalProperties.$message = Message;
+app.config.globalProperties.$notify = Notification;
 app.use(pinia);
 app.use(Pilot);
 app.use(router);

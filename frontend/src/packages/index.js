@@ -18,6 +18,7 @@ import PilotLoading from './Loading'; // 导入 Loading 插件
 import MessageBox from './MessageBox'; // 1. 导入 MessageBox
 import { PilotContainer, PilotHeader, PilotFooter, PilotAside, PilotMain } from './Container';
 import PilotLink from './Link';
+
 const components = [
   PilotButton,
   PilotIcon,
@@ -51,7 +52,6 @@ const install = (app) => {
 
   // 单独注册 Loading 指令插件
   app.use(PilotLoading);
-
   // 2. 将 MessageBox 挂载到全局
   app.config.globalProperties.$messageBox = MessageBox;
 };

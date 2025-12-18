@@ -379,7 +379,7 @@
           </pilot-container>
         </pilot-container>
       </div>
-      <div v-if="activeComponent === 'Button'" class="demo-section">
+      <div v-if="activeComponent === 'Link'" class="demo-section">
         <h2>Link 链接</h2>
         <div style="display: flex; gap: 16px; margin-bottom: 20px">
           <pilot-link href="https://www.google.com" target="_blank">默认链接</pilot-link>
@@ -402,6 +402,26 @@
           <pilot-link>查看<i class="el-icon-view el-icon--right"></i> </pilot-link>
         </div>
       </div>
+      <div v-if="activeComponent === 'Notification'" class="demo-section">
+        <h2>通知 (Notification)</h2>
+        <div style="margin-bottom: 20px">
+          <pilot-button @click="openNotification('success')">Success</pilot-button>
+          <pilot-button @click="openNotification('warning')">Warning</pilot-button>
+          <pilot-button @click="openNotification('info')">Info</pilot-button>
+          <pilot-button @click="openNotification('error')">Error</pilot-button>
+        </div>
+        <div>
+          <pilot-button @click="openNotification('success', 'top-right')">Top Right</pilot-button>
+          <pilot-button @click="openNotification('success', 'top-left')">Top Left</pilot-button>
+          <pilot-button @click="openNotification('success', 'bottom-right')"
+            >Bottom Right</pilot-button
+          >
+          <pilot-button @click="openNotification('success', 'bottom-left')"
+            >Bottom Left</pilot-button
+          >
+          <pilot-button @click="openAutoCloseNotification">不会自动关闭的通知</pilot-button>
+        </div>
+      </div>
     </main>
   </div>
 </template>
@@ -414,6 +434,7 @@ export default {
       componentNames: [
         'Message',
         'Button',
+        'Link',
         'Alert',
         'Card',
         'Input',
@@ -427,6 +448,7 @@ export default {
         'Loading',
         'MessageBox',
         'Container',
+        'Notification',
       ],
       activeComponent: 'Button',
       inputValue: '',
@@ -498,6 +520,23 @@ export default {
       } catch (action) {
         this.$message({ type: 'info', message: `弹窗已关闭 (${action})` });
       }
+    },
+    openNotification(type, position) {
+      this.$notify({
+        title: 'Notification Title',
+        message: 'This is a notification message. It will close automatically.',
+        type: type,
+        duration: 3000,
+        position: position,
+      });
+    },
+    openAutoCloseNotification() {
+      this.$notify({
+        title: '持久通知',
+        message: '我不会自动消失',
+        duration: 0,
+        type: 'info',
+      });
     },
   },
 };
