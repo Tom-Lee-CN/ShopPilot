@@ -1,18 +1,27 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../components/HelloWorld.vue';
-import Login from '../views/loginViews/loginView.vue';
+import mainView from '../views/mainViews/mainView.vue';
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    name: 'homeView',
+    component: mainView,
+    meta: { title: '首页' }, // 面包屑将显示 "首页"
   },
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login,
-  },
+  // {
+  //   path: '/1',
+  //   name: 'componentView',
+  //   component: componentView,
+  //   meta: { title: '产品中心' }, // 面包屑将显示 "首页 / 产品中心"
+  //   children: [
+  //     {
+  //       path: 'list',
+  //       name: 'ProductList',
+  //       component: Login,
+  //       meta: { title: '产品列表' }, // 面包屑将显示 "首页 / 产品中心 / 产品列表"
+  //     },
+  //   ],
+  // },
 ];
 
 const router = createRouter({
