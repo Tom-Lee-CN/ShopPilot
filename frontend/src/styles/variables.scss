@@ -193,7 +193,7 @@ $textarea-count-font-size: $font-size-extra-small !default;
 // --------------------------------------------------------------------------
 // Modal Component
 // --------------------------------------------------------------------------
-$modal-z-index: 2010  !default;
+$modal-z-index: 2010 !default;
 $modal-fade-duration: 0.3s !default;
 $modal-title-font-size: $font-size-large !default;
 $modal-content-font-size: $font-size-base !default;
@@ -262,6 +262,43 @@ $drawer-body-padding: 20px !default;
 $drawer-title-font-size: $font-size-large !default;
 $drawer-close-font-size: 16px !default;
 $drawer-animation-duration: 0.3s !default;
+
+// --------------------------------------------------------------------------
+// Menu Component
+// --------------------------------------------------------------------------
+$menu-bg-color: $color-white !default;
+$menu-text-color: $text-color-primary !default;
+$menu-hover-bg-color: $fill-color-light !default;
+$menu-active-text-color: $primary-color !default;
+$menu-item-height: 56px !default;
+$menu-item-font-size: $font-size-base !default;
+$menu-sub-item-bg-color: $fill-color-light !default;
+
+// --------------------------------------------------------------------------
+// Backtop Component
+// --------------------------------------------------------------------------
+$backtop-bg-color: $color-white !default;
+$backtop-text-color: $primary-color !default;
+$backtop-hover-bg-color: $primary-color !default;
+$backtop-hover-text-color: $color-white !default;
+$backtop-font-size: 20px !default;
+$backtop-size: 40px !default;
+$backtop-border-radius: 50% !default;
+$backtop-box-shadow: $box-shadow-base !default;
+
+// --------------------------------------------------------------------------
+// Icon Component
+// --------------------------------------------------------------------------
+$icon-color: inherit !default; // 默认继承父元素颜色
+
+// --------------------------------------------------------------------------
+// Link Component
+// --------------------------------------------------------------------------
+$link-font-size: $font-size-base !default;
+$link-font-weight: 500 !default;
+$link-default-text-color: $text-color-regular !default;
+$link-default-hover-text-color: $primary-color !default;
+$link-disabled-text-color: $text-color-placeholder !default;
 
 // ==========================================================================
 // CSS 自定义属性 (用于运行时样式)
@@ -467,4 +504,33 @@ $drawer-animation-duration: 0.3s !default;
   --pilot-drawer-title-font-size: #{$drawer-title-font-size};
   --pilot-drawer-close-font-size: #{$drawer-close-font-size};
   --pilot-drawer-animation-duration: #{$drawer-animation-duration};
+
+  // Menu Component
+  --pilot-menu-bg-color: #{$menu-bg-color};
+  --pilot-menu-text-color: #{$menu-text-color};
+  --pilot-menu-hover-bg-color: #{$menu-hover-bg-color};
+  --pilot-menu-active-text-color: #{$menu-active-text-color};
+  --pilot-menu-item-height: #{$menu-item-height};
+  --pilot-menu-item-font-size: #{$menu-item-font-size};
+  --pilot-menu-sub-item-bg-color: #{$menu-sub-item-bg-color};
+
+  // Backtop Component
+  --pilot-backtop-bg-color: #{$backtop-bg-color};
+  --pilot-backtop-text-color: #{$backtop-text-color};
+  --pilot-backtop-hover-bg-color: #{$backtop-hover-bg-color};
+  --pilot-backtop-hover-text-color: #{$backtop-hover-text-color};
+  --pilot-backtop-font-size: #{$backtop-font-size};
+  --pilot-backtop-size: #{$backtop-size};
+  --pilot-backtop-border-radius: #{$backtop-border-radius};
+  --pilot-backtop-box-shadow: #{$backtop-box-shadow};
+
+  // Icon Component
+  --pilot-icon-color: #{$icon-color};
+
+  // Link Component
+  --pilot-link-font-size: #{$link-font-size};
+  --pilot-link-font-weight: #{$link-font-weight};
+  --pilot-link-default-text-color: #{$link-default-text-color};
+  --pilot-link-default-hover-text-color: #{$link-default-hover-text-color};
+  --pilot-link-disabled-text-color: #{$link-disabled-text-color};
 }
